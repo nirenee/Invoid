@@ -62,6 +62,11 @@ public class Playerlocomotion : MonoBehaviour
     
     }
 
+    public void HandleJumping()
+    {
+
+    }
+
 
 
 }

@@ -7,10 +7,17 @@ public class InputManager : MonoBehaviour
     PlayerController playerControls;
     AnimationManager animatormanager;
     public Vector2 movementInput;
+    public Vector2 cameraInput;
+
+    public float verticalCamera;
+    public float horizontalCamera;
     public float verticalInput;
     public float horizontalInput;
    
     private float amountmovement;
+
+
+    public bool jumping_button;
 
 
     private void Awake()
@@ -25,6 +32,10 @@ public class InputManager : MonoBehaviour
             playerControls = new PlayerController();
 
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
+            playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
+
+            playerControls.PlayerActions.Jump.performed += i => jumping_button = true;
+          
         }
 
         playerControls.Enable();
@@ -44,7 +55,20 @@ public class InputManager : MonoBehaviour
     {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
+
+        verticalCamera = cameraInput.y;
+        horizontalCamera = cameraInput.x;
+
         amountmovement = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animatormanager.UpdateAnimator(horizontalInput, amountmovement);
+    }
+
+    private void HandleJumpInput()
+    {
+        if (jumping_button)
+        {
+            jumping_button = false;
+            //Playerlocomotion.handlejump
+        }
     }
 }
