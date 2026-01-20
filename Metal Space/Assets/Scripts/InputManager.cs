@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     PlayerController playerControls;
+    Playerlocomotion playerlocomotion;
     AnimationManager animatormanager;
     public Vector2 movementInput;
     public Vector2 cameraInput;
@@ -16,13 +17,14 @@ public class InputManager : MonoBehaviour
    
     private float amountmovement;
 
-
+    public bool dash_button;
     public bool jumping_button;
 
 
     private void Awake()
     {
         animatormanager = GetComponent<AnimationManager>();
+        playerlocomotion = GetComponent<Playerlocomotion>();
     }
 
     private void OnEnable()
@@ -35,7 +37,8 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
 
             playerControls.PlayerActions.Jump.performed += i => jumping_button = true;
-          
+
+            playerControls.PlayerActions.Dash.performed += i => dash_button = true;
         }
 
         playerControls.Enable();
@@ -45,6 +48,7 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleMovementInput();
+        HandleDashInput();
     }
     private void OnDisable()
     {
@@ -61,6 +65,14 @@ public class InputManager : MonoBehaviour
 
         amountmovement = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         animatormanager.UpdateAnimator(horizontalInput, amountmovement);
+    }
+    private void HandleDashInput()
+    {
+        if (dash_button)
+        {
+            dash_button = false;
+            playerlocomotion.HandleDash();
+        }
     }
 
     private void HandleJumpInput()

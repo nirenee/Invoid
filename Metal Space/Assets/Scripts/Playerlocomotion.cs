@@ -8,10 +8,16 @@ public class Playerlocomotion : MonoBehaviour
     Vector3 directionmove;
     Transform camera;
     Rigidbody PlayerRB;
-    
 
+    public TrailRenderer tr;
     public float moveSpeed = 7;
     public float rotationSpeed;
+    public bool isDashing;
+    public float dashvelocity = 30f;
+    public float dashtime = 0.3f;
+    public float dashcooldown = 1f;
+    private float lastDashTime = -Mathf.Infinity;
+
 
     public void HandleAllMovement()
     {
@@ -22,6 +28,7 @@ public class Playerlocomotion : MonoBehaviour
 
     private void Awake()
     {
+        tr.emitting = false;
         inputmanager = GetComponent<InputManager>();
         PlayerRB = GetComponent<Rigidbody>();
         camera = Camera.main.transform;
@@ -29,6 +36,8 @@ public class Playerlocomotion : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (isDashing) return;
+
         directionmove = camera.forward * inputmanager.verticalInput;
         directionmove = directionmove + camera.right * inputmanager.horizontalInput;
         directionmove.Normalize();
@@ -39,6 +48,15 @@ public class Playerlocomotion : MonoBehaviour
         PlayerRB.velocity =  movementVelocity;
 
 
+    }
+
+    public void HandleDash()
+    {
+        if (Time.time >= lastDashTime + dashcooldown && !isDashing)
+        {
+            StartCoroutine(Dash());
+        }
+       
     }
 
     private void HandleRotation()
@@ -61,7 +79,25 @@ public class Playerlocomotion : MonoBehaviour
         transform.rotation = playerRotation;
     
     }
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        lastDashTime = Time.time;
+        tr.emitting = true;
+      
+        Vector3 dashDirection = transform.forward;
 
+        float startTime = Time.time;
+
+        while (Time.time < startTime + dashtime)
+        {
+            PlayerRB.velocity = dashDirection * dashvelocity;
+            yield return null;
+        }
+        tr.emitting = false;
+        isDashing = false;
+       
+    }
     public void HandleJumping()
     {
 
