@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 436036618}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7109076, z: -0, w: 0.70328546}
-  m_LocalPosition: {x: -5.02, y: 0.68, z: -2.32}
+  m_LocalPosition: {x: -5.04, y: 0.7, z: -2.31}
   m_LocalScale: {x: 13.158, y: 5.9176, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -932,6 +932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808d05aa4321eb140a8583d2243b6d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInteracting: 1
 --- !u!114 &692434965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,13 +945,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14769925cbf5a734689d00f02a05453a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tr: {fileID: 692434973}
-  moveSpeed: 7
-  rotationSpeed: 7
+  isOnGround: 0
+  inAirTimer: 3
+  fallinSpeed: 33
+  leapingspeed: 3
+  rayCastHeightOffSet: 0.5
+  ground:
+    serializedVersion: 2
+    m_Bits: 1
   isDashing: 0
   dashvelocity: 30
   dashtime: 0.3
   dashcooldown: 1
+  tr: {fileID: 692434973}
+  moveSpeed: 7
+  rotationSpeed: 7
 --- !u!114 &692434966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1206,12 +1215,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ffb88c8a6a846f142a31304a350a30e5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.14255
+      value: -4.98
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb88c8a6a846f142a31304a350a30e5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.24
+      value: 3.64
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ffb88c8a6a846f142a31304a350a30e5,
         type: 3}

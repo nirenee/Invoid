@@ -7,6 +7,7 @@ public class AnimationManager : MonoBehaviour
     Animator animator;
      int horizontal;
     int vertical;
+    bool isInteracting;
 
  private void Awake()
     {
@@ -15,6 +16,12 @@ public class AnimationManager : MonoBehaviour
         vertical = Animator.StringToHash("Vertical");
     }
 
+    public void PlayTargetAnimation(string TargetAnimation,bool isInteracting)
+    {
+        animator.SetBool("isInteracting", isInteracting);
+        animator.CrossFade(TargetAnimation, 0.2f);
+    }
+    
 
 
   

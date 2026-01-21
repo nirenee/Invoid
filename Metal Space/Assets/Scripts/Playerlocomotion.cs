@@ -4,40 +4,65 @@ using UnityEngine;
 
 public class Playerlocomotion : MonoBehaviour
 {
+    AnimationManager animationman;
+    playerManager playerManager;
     InputManager inputmanager;
     Vector3 directionmove;
     Transform camera;
     Rigidbody PlayerRB;
 
-    public TrailRenderer tr;
-    public float moveSpeed = 7;
-    public float rotationSpeed;
-    public bool isDashing ;
+
+    [Header("Falling and landing")]
+    public bool isOnGround;
+    public float inAirTimer;
+    public float fallinSpeed;
+    public float leapingspeed;
+    public float rayCastHeightOffSet = 0.5f;
+    public LayerMask ground;
+
+    [Header("Dashing")]
+    public bool isDashing;
     public float dashvelocity = 30f;
     public float dashtime = 0.3f;
     public float dashcooldown = 1f;
+
+    public TrailRenderer tr;
+    public float moveSpeed = 7;
+    public float rotationSpeed;
+ 
+   
     private float lastDashTime = -Mathf.Infinity;
 
 
-    public void HandleAllMovement()
-    {
-       
-        HandleMovement();
-        HandleRotation();
-        
-    }
 
+   
 
     private void Awake()
     {
+
         tr.emitting = false;
         inputmanager = GetComponent<InputManager>();
         PlayerRB = GetComponent<Rigidbody>();
         camera = Camera.main.transform;
+        animationman = GetComponent<AnimationManager>();
+        playerManager = GetComponent<playerManager>();
+    }
+    public void HandleAllMovement()
+    {
+
+        HandleLanding();
+        if (playerManager.isInteracting){
+            return;
+        }
+
+        HandleMovement();
+        HandleRotation();
+
     }
 
 
-      public void HandleDash()
+
+    public void HandleDash()
     {
         if (Time.time >= lastDashTime + dashcooldown && !isDashing)
         {
@@ -103,6 +128,40 @@ public class Playerlocomotion : MonoBehaviour
         tr.emitting = false;
         isDashing = false;
        
+    }
+
+    private void HandleLanding()
+    {
+        RaycastHit ray;
+        Vector3 raycastingground = transform.position;
+        raycastingground.y = raycastingground.y + rayCastHeightOffSet;
+        if (!isOnGround)
+        {
+            if (!playerManager.isInteracting)
+            {
+                animationman.PlayTargetAnimation("Falling Idle", true);
+
+            }
+            inAirTimer = inAirTimer + Time.deltaTime;
+            PlayerRB.AddForce(transform.forward * leapingspeed);
+            PlayerRB.AddForce(-Vector3.up * fallinSpeed);
+        }
+
+        if (Physics.SphereCast(raycastingground, 0.01f, -Vector3.up, out ray,ground))
+        {
+            if (!isOnGround && !playerManager.isInteracting)
+            {
+                animationman.PlayTargetAnimation("Falling to Landing", true);
+            }
+            inAirTimer = 0;
+            isOnGround = true;
+        }
+        else
+        {
+            isOnGround = false;
+        }
+        
+
     }
     public void HandleJumping()
     {
