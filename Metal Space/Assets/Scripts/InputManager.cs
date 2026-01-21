@@ -47,8 +47,9 @@ public class InputManager : MonoBehaviour
 
     public void HandleAllInputs()
     {
-        HandleMovementInput();
         HandleDashInput();
+        HandleMovementInput();
+        
     }
     private void OnDisable()
     {
@@ -57,6 +58,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleMovementInput()
     {
+        
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
 

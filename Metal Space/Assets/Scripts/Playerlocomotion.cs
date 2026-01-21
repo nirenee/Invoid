@@ -12,7 +12,7 @@ public class Playerlocomotion : MonoBehaviour
     public TrailRenderer tr;
     public float moveSpeed = 7;
     public float rotationSpeed;
-    public bool isDashing;
+    public bool isDashing ;
     public float dashvelocity = 30f;
     public float dashtime = 0.3f;
     public float dashcooldown = 1f;
@@ -21,8 +21,10 @@ public class Playerlocomotion : MonoBehaviour
 
     public void HandleAllMovement()
     {
+       
         HandleMovement();
         HandleRotation();
+        
     }
 
 
@@ -34,10 +36,22 @@ public class Playerlocomotion : MonoBehaviour
         camera = Camera.main.transform;
     }
 
+
+      public void HandleDash()
+    {
+        if (Time.time >= lastDashTime + dashcooldown && !isDashing)
+        {
+            StartCoroutine(Dash());
+        }
+       
+    }
+
     private void HandleMovement()
     {
-        if (isDashing) return;
-
+       
+         if (isDashing){
+          return;   
+         }
         directionmove = camera.forward * inputmanager.verticalInput;
         directionmove = directionmove + camera.right * inputmanager.horizontalInput;
         directionmove.Normalize();
@@ -46,18 +60,10 @@ public class Playerlocomotion : MonoBehaviour
 
         Vector3 movementVelocity = directionmove;
         PlayerRB.velocity =  movementVelocity;
-
-
+      
     }
 
-    public void HandleDash()
-    {
-        if (Time.time >= lastDashTime + dashcooldown && !isDashing)
-        {
-            StartCoroutine(Dash());
-        }
-       
-    }
+  
 
     private void HandleRotation()
     {
