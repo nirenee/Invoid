@@ -11,6 +11,7 @@ public class playerManager : MonoBehaviour
     CameraManager cameramanager;
 
     public bool isInteracting;
+    public bool isJumping;
     
     private void Awake()
     {
@@ -38,5 +39,7 @@ public class playerManager : MonoBehaviour
         cameramanager.FollowPlayer();
         cameramanager.Rotate();
         isInteracting = animator.GetBool("isInteracting");
+        playerlocomotion.isJumping = animator.GetBool("isJumping");
+        animator.SetBool("isGrounded", playerlocomotion.isOnGround);
     }
 }

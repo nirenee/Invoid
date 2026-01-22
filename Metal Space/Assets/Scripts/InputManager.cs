@@ -47,9 +47,12 @@ public class InputManager : MonoBehaviour
 
     public void HandleAllInputs()
     {
+        HandleJumpInput();
+
         HandleDashInput();
         HandleMovementInput();
-        
+      
+
     }
     private void OnDisable()
     {
@@ -82,7 +85,7 @@ public class InputManager : MonoBehaviour
         if (jumping_button)
         {
             jumping_button = false;
-            //Playerlocomotion.handlejump
+            playerlocomotion.HandleJumping();
         }
     }
 }

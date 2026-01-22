@@ -655,6 +655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bdc8bc7a5a8124297afa13a558b60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &614428138
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +909,7 @@ Transform:
   m_GameObject: {fileID: 689520786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.96, y: 0, z: 6.6}
+  m_LocalPosition: {x: 0.96, y: 0, z: 22.6}
   m_LocalScale: {x: 5.896187, y: 1, z: 4.2769}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -933,6 +934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteracting: 1
+  isJumping: 0
 --- !u!114 &692434965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,6 +959,10 @@ MonoBehaviour:
   dashvelocity: 30
   dashtime: 0.3
   dashcooldown: 1
+  isJumping: 0
+  speedjumping: 2
+  jumpHeight: 3
+  gravityIntensity: -70
   tr: {fileID: 692434973}
   moveSpeed: 7
   rotationSpeed: 7
@@ -1042,6 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05bdc8bc7a5a8124297afa13a558b60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!96 &692434973
 TrailRenderer:
   serializedVersion: 3

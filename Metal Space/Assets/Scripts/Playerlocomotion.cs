@@ -25,13 +25,21 @@ public class Playerlocomotion : MonoBehaviour
     public float dashvelocity = 30f;
     public float dashtime = 0.3f;
     public float dashcooldown = 1f;
+    private float lastDashTime = -Mathf.Infinity;
+
+    [Header("Jumping")]
+    public bool isJumping;
+    public float speedjumping;
+    public float jumpHeight = 3;
+    public float gravityIntensity = -15;
+
 
     public TrailRenderer tr;
     public float moveSpeed = 7;
     public float rotationSpeed;
  
    
-    private float lastDashTime = -Mathf.Infinity;
+    
 
 
 
@@ -49,12 +57,16 @@ public class Playerlocomotion : MonoBehaviour
     }
     public void HandleAllMovement()
     {
-
+       
         HandleLanding();
         if (playerManager.isInteracting){
             return;
         }
-
+        if (isJumping)
+        {
+            return;
+        }
+        
         HandleMovement();
         HandleRotation();
 
@@ -77,6 +89,10 @@ public class Playerlocomotion : MonoBehaviour
          if (isDashing){
           return;   
          }
+        if (isJumping)
+        {
+            return;
+        }
         directionmove = camera.forward * inputmanager.verticalInput;
         directionmove = directionmove + camera.right * inputmanager.horizontalInput;
         directionmove.Normalize();
@@ -92,6 +108,10 @@ public class Playerlocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
+        if (isJumping)
+        {
+            return;
+        }
         Vector3 targetDirection = Vector3.zero;
 
         targetDirection= camera.forward * inputmanager.verticalInput;
@@ -135,7 +155,7 @@ public class Playerlocomotion : MonoBehaviour
         RaycastHit ray;
         Vector3 raycastingground = transform.position;
         raycastingground.y = raycastingground.y + rayCastHeightOffSet;
-        if (!isOnGround)
+        if (!isOnGround && !isJumping)
         {
             if (!playerManager.isInteracting)
             {
@@ -165,6 +185,16 @@ public class Playerlocomotion : MonoBehaviour
     }
     public void HandleJumping()
     {
+        if (isOnGround)
+        {
+            animationman.animator.SetBool("isJumping",true);
+            animationman.PlayTargetAnimation("Jumping", true);
+            
+            speedjumping = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
+            Vector3 playerVelocity = directionmove;
+            playerVelocity.y = speedjumping;
+            PlayerRB.velocity = playerVelocity;
+        }
 
     }
 
