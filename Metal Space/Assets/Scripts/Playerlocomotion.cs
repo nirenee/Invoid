@@ -89,10 +89,7 @@ public class Playerlocomotion : MonoBehaviour
          if (isDashing){
           return;   
          }
-        if (isJumping)
-        {
-            return;
-        }
+        
         directionmove = camera.forward * inputmanager.verticalInput;
         directionmove = directionmove + camera.right * inputmanager.horizontalInput;
         directionmove.Normalize();
@@ -167,7 +164,7 @@ public class Playerlocomotion : MonoBehaviour
             PlayerRB.AddForce(-Vector3.up * fallinSpeed);
         }
 
-        if (Physics.SphereCast(raycastingground, 0.01f, -Vector3.up, out ray,ground))
+        if (Physics.SphereCast(raycastingground, 0.1f, -Vector3.up, out ray,ground))
         {
             if (!isOnGround && !playerManager.isInteracting)
             {
