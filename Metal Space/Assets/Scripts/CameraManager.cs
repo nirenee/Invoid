@@ -41,7 +41,7 @@ public class CameraManager : MonoBehaviour
   
    public void FollowPlayer()
     {
-        Vector3 playerscope= playertransform.position + new Vector3(1.2f,0f,0f);
+        Vector3 playerscope= playertransform.position + new Vector3(2f,0f,1f);
         Vector3 Targetposition = Vector3.SmoothDamp(transform.position, playerscope, ref cameraFollow, speedCamera);
         transform.position = playerscope;
     }
@@ -64,7 +64,7 @@ public class CameraManager : MonoBehaviour
 
     }
 
-        public     void HandleCollisions()
+        public  void HandleCollisions()
     {
         float targetPosition = defaultposition;
         RaycastHit hit;

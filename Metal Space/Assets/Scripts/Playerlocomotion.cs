@@ -27,6 +27,8 @@ public class Playerlocomotion : MonoBehaviour
     public float dashcooldown = 1f;
     private float lastDashTime = -Mathf.Infinity;
 
+    public TrailRenderer tr;
+
     [Header("Jumping")]
     public bool isJumping;
     public float speedjumping;
@@ -34,7 +36,6 @@ public class Playerlocomotion : MonoBehaviour
     public float gravityIntensity = -15;
 
 
-    public TrailRenderer tr;
     public float moveSpeed = 7;
     public float rotationSpeed;
  
