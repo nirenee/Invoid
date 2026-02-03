@@ -9,16 +9,13 @@ public class Health : MonoBehaviour
 {
     public float currenthealth;
     public float MaxHealth;
-    public float damage;
     public float increaseHealth;
-    Bullet bullet;
-    public bool isPlayer;
     public Slider healthslider;
 
 
     private void Start()
     {
-        bullet = FindObjectOfType<Bullet>();
+      
         currenthealth = MaxHealth;
         SetSliderMax(MaxHealth);
         

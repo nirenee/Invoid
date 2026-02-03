@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -901852534274675767}
   m_Layer: 0
   m_Name: Proyectile
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedbullet: 30
   bullettime: 3
+  bulletdamage: 0
 --- !u!54 &-901852534274675767
 Rigidbody:
   m_ObjectHideFlags: 0

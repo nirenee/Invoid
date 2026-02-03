@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float damageReceived;
     private int enemycounter;
     private Coroutine damagecoroutine;
-
+    
   
     private void Awake()
     {
@@ -19,6 +19,11 @@ public class PlayerHealth : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
 
+        if (collision.gameObject.CompareTag("deathwall"))
+        {
+            Destroy(this.gameObject);
+
+        }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("colliison");
