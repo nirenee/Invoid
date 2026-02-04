@@ -8,8 +8,8 @@ public class EnemyHealth : MonoBehaviour
     Bullet bullet;
     Health health;
     private Animator animator;
-
-   
+    [Range (0,100)] public float percentageloot = 50f;
+    public GameObject objectdrop;
 
     public void Awake()
     {
@@ -19,6 +19,8 @@ public class EnemyHealth : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        
+        
         Debug.Log("colision");
 
         if (other.CompareTag("PlayerAttack"))
@@ -28,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
             health.ApplyDamage(bullet.bulletdamage);
             if (health.currenthealth <= 0)
             {
+                LootObject();
                 var isDead = true;
                 animator.SetBool("isDead", isDead);
                 Destroy(this.gameObject);
@@ -39,6 +42,17 @@ public class EnemyHealth : MonoBehaviour
 
 
 
+    }
+
+    private void LootObject()
+    {
+        float randomnum;
+        randomnum = Random.Range(0, 100);
+
+        if(randomnum <= percentageloot)
+        {
+            Instantiate(objectdrop,transform.position, Quaternion.identity);
+        }
     }
     
 

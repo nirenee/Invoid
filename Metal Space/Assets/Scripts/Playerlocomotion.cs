@@ -58,13 +58,9 @@ public class Playerlocomotion : MonoBehaviour
     }
     public void HandleAllMovement()
     {
-       
+      
         HandleLanding();
         if (playerManager.isInteracting){
-            return;
-        }
-        if (isJumping)
-        {
             return;
         }
         
@@ -98,7 +94,8 @@ public class Playerlocomotion : MonoBehaviour
         directionmove = directionmove * moveSpeed;
 
         Vector3 movementVelocity = directionmove;
-        PlayerRB.velocity =  movementVelocity;
+        movementVelocity.y =PlayerRB.velocity.y;
+        PlayerRB.velocity = movementVelocity;
       
     }
 
@@ -106,10 +103,7 @@ public class Playerlocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
-        if (isJumping)
-        {
-            return;
-        }
+     
         Vector3 targetDirection = Vector3.zero;
 
         targetDirection= camera.forward * inputmanager.verticalInput;
