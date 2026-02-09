@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("deathwall"))
         {
             Destroy(this.gameObject);
+            SceneManager.LoadScene("GameOver");
 
         }
         if (collision.gameObject.CompareTag("Enemy"))
@@ -64,6 +66,7 @@ public class PlayerHealth : MonoBehaviour
         if (health.currenthealth <= 0)
         {
             Destroy(this.gameObject);
+            SceneManager.LoadScene("GameOver");
         }
         damagecoroutine = null;
      }
