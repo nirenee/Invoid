@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,7 @@ public class InputManager : MonoBehaviour
     public Vector2 cameraInput;
 
 
+    public float cooldowntime;
     public float verticalCamera;
     public float horizontalCamera;
     public float verticalInput;
@@ -24,6 +26,7 @@ public class InputManager : MonoBehaviour
     public bool dash_button;
     public bool jumping_button;
     public bool attack_button;
+    private float lastAttackTime;
 
     private float time= 0.5f;
 
@@ -49,7 +52,7 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.Dash.performed += i => dash_button = true;
 
             playerControls.PlayerActions.Attack.performed += i => attack_button = true;
-            
+            playerControls.PlayerActions.Attack.canceled += i => attack_button = false;
         }
 
         playerControls.Enable();
@@ -62,6 +65,7 @@ public class InputManager : MonoBehaviour
 
         HandleDashInput();
         HandleMovementInput();
+        HandleAttack();
         HandleAttack();
 
     }
@@ -95,6 +99,7 @@ public class InputManager : MonoBehaviour
 
     private void HandleJumpInput()
     {
+        
         if (jumping_button)
         {
             jumping_button = false;
@@ -103,16 +108,21 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    private void HandleAttack()
+    public void HandleAttack()
     {
-        if (attack_button)
+        if (!attack_button)
         {
-           
-            attack_button = false;
-            
-            bulletmanager.HandleBullet();
-
+            return;
         }
+           if (Time.time - lastAttackTime < cooldowntime)
+            {
+            return;
+            }
+
+        lastAttackTime = Time.time;
+        bulletmanager.HandleBullet();
+
+        
        
     }
 

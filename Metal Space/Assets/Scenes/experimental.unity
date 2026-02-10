@@ -1732,6 +1732,8 @@ MonoBehaviour:
   speedCamera: 0.2
   minimumhigh: -20
   maximumhigh: 50
+  minangle: 45
+  maximumangle: 45
   cameraCollisionRadius: 0
   collisionLayers:
     serializedVersion: 2
@@ -2122,20 +2124,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 958302951}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &692434964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692434962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 808d05aa4321eb140a8583d2243b6d4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInteracting: 1
-  isJumping: 0
 --- !u!114 &692434965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2181,6 +2169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementInput: {x: 0, y: 0}
   cameraInput: {x: 0, y: 0}
+  cooldowntime: 0.3
   verticalCamera: 0
   horizontalCamera: 0
   verticalInput: 0
@@ -2399,6 +2388,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageReceived: 4
+--- !u!114 &692434980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692434962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808d05aa4321eb140a8583d2243b6d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteracting: 0
+  isJumping: 0
 --- !u!1 &769350763
 GameObject:
   m_ObjectHideFlags: 0
@@ -3022,7 +3025,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffb88c8a6a846f142a31304a350a30e5,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 692434964}
+      addedObject: {fileID: 692434980}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffb88c8a6a846f142a31304a350a30e5,
         type: 3}
       insertIndex: -1

@@ -14,6 +14,8 @@ public class CameraManager : MonoBehaviour
     public float speedCamera= 0.2f;
     public float minimumhigh = -35;
     public float maximumhigh = 70;
+    public float minangle = 45;
+    public float maximumangle = 45;
     public float cameraCollisionRadius;
     public LayerMask collisionLayers;
     private Vector3 cameraVecPos;
@@ -52,6 +54,7 @@ public class CameraManager : MonoBehaviour
         CameraLeftRight = CameraLeftRight - ( inputManager.cameraInput.y * speedCamera);
         CameraLeftRight = Mathf.Clamp(CameraLeftRight, minimumhigh, maximumhigh);
 
+       
         Vector3 rotation = Vector3.zero;
         rotation.y = CameraUpDown;
         Quaternion targetRotation = Quaternion.Euler(rotation);

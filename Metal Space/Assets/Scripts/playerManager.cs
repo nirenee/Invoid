@@ -12,7 +12,7 @@ public class playerManager : MonoBehaviour
 
     public bool isInteracting;
     public bool isJumping;
-    
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -22,7 +22,7 @@ public class playerManager : MonoBehaviour
         animationmanager = GetComponent<AnimationManager>();
     }
 
-    private void  Update()
+    private void Update()
     {
         inputmanager.HandleAllInputs();
     }
@@ -31,7 +31,7 @@ public class playerManager : MonoBehaviour
     private void FixedUpdate()
     {
         playerlocomotion.HandleAllMovement();
-        
+
     }
 
     private void LateUpdate()

@@ -54,7 +54,7 @@ public class Playerlocomotion : MonoBehaviour
         PlayerRB = GetComponent<Rigidbody>();
         camera = Camera.main.transform;
         animationman = GetComponent<AnimationManager>();
-        playerManager = GetComponent<playerManager>();
+        playerManager = FindObjectOfType<playerManager>();
     }
     public void HandleAllMovement()
     {
@@ -103,18 +103,30 @@ public class Playerlocomotion : MonoBehaviour
 
     private void HandleRotation()
     {
-     
         Vector3 targetDirection = Vector3.zero;
+        if (inputmanager.attack_button)
+        {
+            targetDirection = camera.forward;
+            targetDirection.y = 0f;
 
-        targetDirection= camera.forward * inputmanager.verticalInput;
-        targetDirection = targetDirection + camera.right * inputmanager.horizontalInput;
-        targetDirection.Normalize();
-        targetDirection.y = 0;
-       
-        if(targetDirection == Vector3.zero)
+        }
+        else
+        {
+
+            targetDirection = camera.forward * inputmanager.verticalInput;
+            targetDirection = targetDirection + camera.right * inputmanager.horizontalInput;
+          
+            targetDirection.y = 0;
+
+        }
+
+
+        if (targetDirection == Vector3.zero)
         {
             targetDirection = transform.forward;
         }
+
+        targetDirection.Normalize();
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
         Quaternion playerRotation = Quaternion.Slerp(transform.rotation,targetRotation, rotationSpeed * Time.deltaTime);
