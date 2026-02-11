@@ -11,12 +11,6 @@ public class BulletManager : MonoBehaviour
     public bool isShooting = false;
     public GameObject bulletprefab;
 
-
-
-
-
-
-
     public void HandleBullet()
     {
         if(bulletprefab == null || bulletposini == null)
@@ -29,11 +23,8 @@ public class BulletManager : MonoBehaviour
         {
             Vector3 shootDirection = (camerahit.point - bulletposini.position).normalized;
             bulletposini.rotation = Quaternion.LookRotation(shootDirection);
-
             Instantiate(bulletprefab, bulletposini.position, bulletposini.rotation);
-        }
-      
+        }      
     }
 
-   
 }

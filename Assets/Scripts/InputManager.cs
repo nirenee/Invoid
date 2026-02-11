@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     Playerlocomotion playerlocomotion;
     AnimationManager animatormanager;
     BulletManager bulletmanager;
+
     public Vector2 movementInput;
     public Vector2 cameraInput;
 
@@ -26,16 +27,23 @@ public class InputManager : MonoBehaviour
     public bool dash_button;
     public bool jumping_button;
     public bool attack_button;
+    public bool pickup_button;
     private float lastAttackTime;
 
     private float time= 0.5f;
 
     private void Awake()
     {
+
         animatormanager = GetComponent<AnimationManager>();
         playerlocomotion = GetComponent<Playerlocomotion>();
         bulletmanager = FindObjectOfType<BulletManager>();
-        
+       
+        if (animatormanager == null || playerlocomotion == null || bulletmanager == null )
+        {
+            return;
+        }
+
     }
 
     private void OnEnable()
@@ -53,6 +61,8 @@ public class InputManager : MonoBehaviour
 
             playerControls.PlayerActions.Attack.performed += i => attack_button = true;
             playerControls.PlayerActions.Attack.canceled += i => attack_button = false;
+
+            playerControls.PlayerActions.Pickup.performed += i => pickup_button = true; 
         }
 
         playerControls.Enable();
@@ -67,6 +77,7 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleAttack();
         HandleAttack();
+     
 
     }
     private void OnDisable()
@@ -107,6 +118,8 @@ public class InputManager : MonoBehaviour
             playerlocomotion.HandleJumping();
         }
     }
+
+
 
     public void HandleAttack()
     {

@@ -236,7 +236,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pick up",
+                    "name": "Pickup",
                     "type": "Button",
                     "id": "222a9783-9f99-42e9-b846-5b66dbd2a47a",
                     "expectedControlType": "",
@@ -319,7 +319,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pick up",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -330,7 +330,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pick up",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

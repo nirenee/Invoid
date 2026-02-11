@@ -13,15 +13,17 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
+        
         bulletrb = GetComponent<Rigidbody>();
         bulletrb.velocity = this.transform.forward * speedbullet;
+        if (bulletrb== null)
+        {
+            return;
+        }
     }
-
-
 
     private void OnTriggerEnter(Collider other)
     {
-        // Destroy(Instantiate(bulletrb.position, bulletrb.rotation,))
         Destroy(this.gameObject);
     }
 
