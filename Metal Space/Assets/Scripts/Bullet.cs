@@ -13,14 +13,17 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
+        //Get component can return a null, do you want to crash in this case?
         bulletrb = GetComponent<Rigidbody>();
         bulletrb.velocity = this.transform.forward * speedbullet;
     }
+    //Empty lines?
 
 
 
     private void OnTriggerEnter(Collider other)
     {
+        //try to avoid submitting commented code
         // Destroy(Instantiate(bulletrb.position, bulletrb.rotation,))
         Destroy(this.gameObject);
     }
