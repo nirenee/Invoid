@@ -32,6 +32,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
+        //What if any of these are null?
         animatormanager = GetComponent<AnimationManager>();
         playerlocomotion = GetComponent<Playerlocomotion>();
         bulletmanager = FindObjectOfType<BulletManager>();
@@ -42,8 +43,38 @@ public class InputManager : MonoBehaviour
     {
         if (playerControls == null)
         {
+            //Did you consider moving this to awake?
             playerControls = new PlayerController();
 
+            //Maybe I'm old grumpy man, but for me too many things are happening in this line of code to understand it while reading.
+            //playerControls.PlayerMovement.Movement.performed is an input action, which can take callbacks
+            //+= adds a callback to it
+            //i => .. creates a lambda, where i is a CallbackContext
+            //lambda updates 2d vector member
+
+            //AI writes is like this and I prefer this as it's easier to read IMO
+            /*
+            
+            void OnEnable()
+            {
+                var action = playerControls.PlayerMovement.Movement;
+                action.performed += OnMovementPerformed;
+                action.Enable(); // often done at the action map level
+            }
+
+            void OnDisable()
+            {
+                var action = playerControls.PlayerMovement.Movement;
+                action.performed -= OnMovementPerformed; // important to avoid leaks/duplicates
+                action.Disable();
+            }
+
+            private void OnMovementPerformed(InputAction.CallbackContext ctx)
+            {
+                movementInput = ctx.ReadValue<Vector2>();
+            }
+
+            */
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
             playerControls.PlayerMovement.Camera.performed += i => cameraInput = i.ReadValue<Vector2>();
 
