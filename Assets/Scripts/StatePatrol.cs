@@ -48,6 +48,9 @@ public class StatePatrol : MonoBehaviour
     private void Update()
     {
         var distanceplayer =   Vector3.Distance(playerposition.position, transform.position);
+        if(distanceplayer == null) {
+            return;
+        }
         switch (currentstate)
         {
             case EnumState.Patrolling:
