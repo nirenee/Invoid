@@ -7,6 +7,7 @@ public class BulletManager : MonoBehaviour
 {
 
     [Header("Bullet")]
+    public float bulletrange= 1000f;
     public Transform bulletposini;
     public GameObject bulletprefab;
 
@@ -14,17 +15,16 @@ public class BulletManager : MonoBehaviour
     {
         if(bulletprefab == null || bulletposini == null)
         {
-            Debug.Log("no");
             return;
         }
        
         RaycastHit camerahit;
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out camerahit,1f))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out camerahit, bulletrange))
         {
             Vector3 shootDirection = (camerahit.point - bulletposini.position).normalized;
             bulletposini.rotation = Quaternion.LookRotation(shootDirection);
             Instantiate(bulletprefab, bulletposini.position, bulletposini.rotation);
-            Debug.Log("si");
+
         }      
     }
 
