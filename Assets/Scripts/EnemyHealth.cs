@@ -46,12 +46,14 @@ public class EnemyHealth : MonoBehaviour
 
     private void LootObject()
     {
+        
         float randomnum;
         randomnum = Random.Range(0, 100);
+        Vector3 spawner = transform.position + new Vector3 (0,1,0);
 
         if(randomnum <= percentageloot)
         {
-            Instantiate(objectdrop,transform.position, Quaternion.identity);
+            Instantiate(objectdrop,spawner, Quaternion.identity);
         }
     }
     

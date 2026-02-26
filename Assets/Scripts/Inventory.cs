@@ -1,43 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Inventory : MonoBehaviour
 {
-   // public TMPro.TextMeshPro diamondcounter;
-    public Canvas KeyCollect;
-    
-    private int numberofdiamonds =0;
-    private int costofdiamonds = 25;
-     InputManager inputmanager;
-
-
-
-    private void Awake()
-    {
-        inputmanager = FindObjectOfType<InputManager>();
+   
+    public TextMeshProUGUI counter;
+    public float totaldiamonds;
   
-        if(inputmanager == null )
+
+    public void AddDiamonds(float amount)
+    {
+        if(counter == null)
         {
             return;
         }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.tag == "Player")
+        if(amount <= 0)
         {
-            KeyCollect.gameObject.SetActive(true);
-            if (inputmanager.pickup_button)
-            {
-                numberofdiamonds = numberofdiamonds + costofdiamonds;
-                Debug.Log(numberofdiamonds);
-                Destroy(this.gameObject);
-                inputmanager.pickup_button = false;
-            }
+            return;
         }
+        totaldiamonds += amount;
+        counter.text = totaldiamonds.ToString();
     }
 
-   
+
+
 }

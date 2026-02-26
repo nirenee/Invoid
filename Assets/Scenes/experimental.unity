@@ -185,7 +185,7 @@ MonoBehaviour:
   attackspawner: {fileID: 1797914689}
   playerposition: {fileID: 692434975}
   anglevision: 45
-  bullet: {fileID: 5713719601084363730, guid: 00037aa7099f32e43bb18e906343b754, type: 3}
+  bullet: {fileID: 4062482987743613692, guid: c87429a204262cf41968e2ba6407864d, type: 3}
 --- !u!114 &74858207
 MonoBehaviour:
   m_ObjectHideFlags: 0

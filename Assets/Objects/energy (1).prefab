@@ -268,7 +268,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: aaf2cfb6d08c67c40be4ac7227677062,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.28
+      value: 1.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aaf2cfb6d08c67c40be4ac7227677062,
         type: 3}
@@ -378,3 +378,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyCollect: {fileID: 6421582138311832095}
+  costofdiamonds: 25

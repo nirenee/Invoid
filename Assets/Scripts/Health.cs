@@ -44,12 +44,12 @@ public class Health : MonoBehaviour
         Debug.Log("heal");
     }
   
-  /* private void OnCollisionEnter(Collision collision)
+   /*private void OnCollisionEnter(Collision collision)
     {
       
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("colliison");
+            Debug.Log("collision");
             MaxHealth = MaxHealth - damage;
             SetSlider(MaxHealth);
         }
