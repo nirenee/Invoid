@@ -91,11 +91,11 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: metarig
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 1637c4b045801d146975cde779eb8c12,
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 91acdce589ee7644bbc9b30a0fd898a9,
     type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
