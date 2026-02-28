@@ -9,7 +9,7 @@ public class DistanceEnemyAttack : MonoBehaviour
     public Transform playerposition;
     public float anglevision;
     public GameObject bullet;
-    private float attackrange = 30;
+    public float attackrange = 1;
     private float speedattack = 1f;
 
 
@@ -38,7 +38,8 @@ public class DistanceEnemyAttack : MonoBehaviour
         
         if (distanceplayer <= attackrange && isFacingPlayer())
         {
-            Vector3 direction = (playerposition.position - attackspawner.position).normalized;
+            Vector3 playerpositionhead = playerposition.position + new Vector3(0, 1.5f, 0);
+            Vector3 direction = (playerpositionhead - attackspawner.position).normalized;
             attackspawner.rotation = Quaternion.LookRotation(direction);
             Instantiate(bullet, attackspawner.position, attackspawner.rotation);
         } 

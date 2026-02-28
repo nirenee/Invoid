@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
   Health health;
     public float damageReceived;
+    public float bulletdamage;
     private int enemycounter;
     private Coroutine damagecoroutine;
     
@@ -26,9 +27,16 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadScene("GameOver");
 
         }
+        if (collision.gameObject.CompareTag("EnemyAttack"))
+        {
+            health.ApplyDamage(bulletdamage);
+
+
+        }
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("colliison");
+            Debug.Log("collision");
             enemycounter++;
             damagecoroutine = StartCoroutine(DamageOverTime());
             
