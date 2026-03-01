@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 9022321085517845777}
   - component: {fileID: 3288017504917041649}
   - component: {fileID: 6049527004233145840}
-  - component: {fileID: -7331723721398618133}
   - component: {fileID: -901852534274675767}
+  - component: {fileID: 4481965247878275542}
   m_Layer: 0
   m_Name: EnemyAttack
   m_TagString: EnemyAttack
@@ -107,21 +107,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-7331723721398618133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4062482987743613692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 863457559b0be1840821478a13eceef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedbullet: 30
-  bullettime: 3
-  bulletdamage: 0
 --- !u!54 &-901852534274675767
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,3 +134,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4481965247878275542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062482987743613692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51dde40998736b748932acbc56e56aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedbullet: 30
+  bullettime: 3
+  bulletdamage: 3
