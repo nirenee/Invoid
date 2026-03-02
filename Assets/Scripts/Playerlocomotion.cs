@@ -39,13 +39,6 @@ public class Playerlocomotion : MonoBehaviour
     public float moveSpeed = 7;
     public float rotationSpeed;
  
-   
-    
-
-
-
-   
-
     private void Awake()
     {
 
@@ -58,9 +51,9 @@ public class Playerlocomotion : MonoBehaviour
     }
     public void HandleAllMovement()
     {
-      
         HandleLanding();
-        if (playerManager.isInteracting){
+        if (playerManager.isInteracting && isOnGround)
+        {
             return;
         }
         
@@ -82,7 +75,7 @@ public class Playerlocomotion : MonoBehaviour
 
     private void HandleMovement()
     {
-       
+
          if (isDashing){
           return;   
          }
@@ -98,8 +91,6 @@ public class Playerlocomotion : MonoBehaviour
         PlayerRB.velocity = movementVelocity;
       
     }
-
-  
 
     private void HandleRotation()
     {
@@ -167,8 +158,8 @@ public class Playerlocomotion : MonoBehaviour
 
             }
             inAirTimer = inAirTimer + Time.deltaTime;
-            PlayerRB.AddForce(transform.forward * leapingspeed);
-            PlayerRB.AddForce(-Vector3.up * fallinSpeed);
+           PlayerRB.AddForce(transform.forward * leapingspeed);
+           PlayerRB.AddForce(-Vector3.up * fallinSpeed);
         }
 
         if (Physics.SphereCast(raycastingground, 0.1f, -Vector3.up, out ray,ground))
@@ -179,25 +170,25 @@ public class Playerlocomotion : MonoBehaviour
             }
             inAirTimer = 0;
             isOnGround = true;
+            isJumping = false;
         }
         else
         {
             isOnGround = false;
         }
-        
-
     }
     public void HandleJumping()
     {
         if (isOnGround)
         {
             animationman.animator.SetBool("isJumping",true);
-            animationman.PlayTargetAnimation("Jumping", true);
+            animationman.PlayTargetAnimation("Jumping", false);
             
             speedjumping = Mathf.Sqrt(-2 * gravityIntensity * jumpHeight);
-            Vector3 playerVelocity = directionmove;
+            Vector3 playerVelocity = PlayerRB.velocity;
             playerVelocity.y = speedjumping;
             PlayerRB.velocity = playerVelocity;
+            isOnGround = false;
         }
 
     }

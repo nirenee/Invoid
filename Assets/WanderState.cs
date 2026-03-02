@@ -10,6 +10,7 @@ public class WanderState: MonoBehaviour
     public float wanderstop;
     public float waitTime;
     private Coroutine wanderCoroutine;
+    private Animator animator;
 
 
 
@@ -33,6 +34,7 @@ public class WanderState: MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
     
     private IEnumerator WanderingAround()

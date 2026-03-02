@@ -74,6 +74,11 @@ GameObject:
   m_Component:
   - component: {fileID: 103418661109060153}
   - component: {fileID: 6309339040893143107}
+  - component: {fileID: 5198072973931045942}
+  - component: {fileID: 1469050276364098740}
+  - component: {fileID: -697247880395127667}
+  - component: {fileID: -8628679203496981420}
+  - component: {fileID: 5057712082004322816}
   m_Layer: 0
   m_Name: StarFishPolyart
   m_TagString: Enemy
@@ -119,6 +124,91 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5198072973931045942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730913642995583107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65107f899f0cccb46b9a6bc48da15e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currenthealth: 0
+  MaxHealth: 0
+  increaseHealth: 0
+  healthslider: {fileID: 0}
+--- !u!114 &1469050276364098740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730913642995583107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2259d74129608f847babb443a5debac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageloot: 50
+  objectdrop: {fileID: 5713719601084363730, guid: 00037aa7099f32e43bb18e906343b754,
+    type: 3}
+--- !u!114 &-697247880395127667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730913642995583107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c028fa36974914da9ed0748f376392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackspawner: {fileID: 0}
+  playerposition: {fileID: 0}
+  anglevision: 0
+  bullet: {fileID: 0}
+  attackrange: 1
+--- !u!114 &-8628679203496981420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730913642995583107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4b947dee354c44e93bfb8c7d51e142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wanderarea: 0
+  wanderstop: 0
+  waitTime: 0
+--- !u!195 &5057712082004322816
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730913642995583107}
+  m_Enabled: 1
+  m_AgentTypeID: -334000983
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1011993328031821089
 GameObject:
   m_ObjectHideFlags: 0

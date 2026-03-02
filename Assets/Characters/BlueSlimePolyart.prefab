@@ -877,6 +877,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3483162321246384061}
   - component: {fileID: 7401245397300524487}
+  - component: {fileID: -3453422887716678170}
+  - component: {fileID: 5038935653086486833}
+  - component: {fileID: -6592358384406771969}
+  - component: {fileID: -3862941588271317278}
+  - component: {fileID: 7572232096858464594}
   m_Layer: 0
   m_Name: BlueSlimePolyart
   m_TagString: Enemy
@@ -922,6 +927,97 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3453422887716678170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259698268735943943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65107f899f0cccb46b9a6bc48da15e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currenthealth: 0
+  MaxHealth: 0
+  increaseHealth: 0
+  healthslider: {fileID: 0}
+--- !u!114 &5038935653086486833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259698268735943943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7506c29f3309e642bf0d99a021fad57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPoints: []
+  distancestop: 0
+  playerposition: {fileID: 0}
+  enemyvisiondistance: 0
+  enemyvisionangle: 0
+  loseplayer: 0
+--- !u!114 &-6592358384406771969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259698268735943943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2259d74129608f847babb443a5debac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageloot: 50
+  objectdrop: {fileID: 0}
+--- !u!195 &-3862941588271317278
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259698268735943943}
+  m_Enabled: 1
+  m_AgentTypeID: -334000983
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!135 &7572232096858464594
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259698268735943943}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5022036212427628508
 GameObject:
   m_ObjectHideFlags: 0

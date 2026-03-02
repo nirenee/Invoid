@@ -16,12 +16,14 @@ public class DistanceEnemyAttack : MonoBehaviour
     private bool canRotate = false;
     private NavMeshAgent agent;
     private WanderState wanderState;
+    private Animator animator;
 
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         wanderState = GetComponent<WanderState>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -63,6 +65,7 @@ public class DistanceEnemyAttack : MonoBehaviour
             {
                 agent.isStopped = true;
             }
+            animator.SetTrigger("Attack");
             canRotate = true;
             Vector3 playerpositionhead = playerposition.position + new Vector3(0, 1.5f, 0);
             Vector3 directionattack = (playerpositionhead - attackspawner.position).normalized;
