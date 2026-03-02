@@ -11,7 +11,7 @@ public class CameraManager : MonoBehaviour
     public Transform camerapivot;
     public Transform cameratransform;
     Vector3 cameraFollow = Vector3.zero;
-    public float speedCamera= 0.2f;
+    public float speedCamera= 2f;
     public float minimumhigh = -35;
     public float maximumhigh = 70;
     public float minangle = 45;
@@ -25,12 +25,8 @@ public class CameraManager : MonoBehaviour
     private float CameraUpDown;
     private float CameraLeftRight;
     private float defaultposition;
-   
-
     public float cameraspeed = 2.0f;
 
-
-    
     private void Awake()
     {
         playertransform = FindObjectOfType<playerManager>().transform;

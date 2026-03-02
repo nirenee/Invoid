@@ -121,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedbullet: 30
   bullettime: 3
-  bulletdamage: 0
+  bulletdamage: 1
 --- !u!54 &-901852534274675767
 Rigidbody:
   m_ObjectHideFlags: 0
