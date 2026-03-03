@@ -15,9 +15,9 @@ enum EnumState
 public class StatePatrol : MonoBehaviour
 {
     [Header("References")]
-    public Transform[] patrolPoints;
+    private Transform[] patrolPoints;
     public float distancestop;
-    public Transform playerposition;
+    private Transform playerposition;
     public float enemyvisiondistance;
     public float enemyvisionangle;
     public float loseplayer;
@@ -31,6 +31,28 @@ public class StatePatrol : MonoBehaviour
 
     private void Awake()
     {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            playerposition = playerObject.transform;
+        }
+        else
+        {
+            Debug.Log("there is no player in the scene");
+        }
+        GameObject[] patrolobjects = GameObject.FindGameObjectsWithTag("PatrolPoints");
+        if (patrolobjects != null && patrolobjects.Length > 0)
+        {
+            patrolPoints = new Transform[patrolobjects.Length];
+            for(int i= 0;i< patrolobjects.Length; i++)
+            {
+                patrolPoints[i] = patrolobjects[i].transform;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("No patrol points found with tag 'PatrolPoint'");
+        }
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
     }
@@ -40,6 +62,7 @@ public class StatePatrol : MonoBehaviour
         if (patrolPoints != null && patrolPoints.Length > 0)
         {
             currentstate = EnumState.Patrolling;
+            indexwaypoints = 0;
             NextWaypoint();
         }
       
@@ -49,12 +72,12 @@ public class StatePatrol : MonoBehaviour
     {
         if(playerposition== null)
         {
+            Patrol();
+            UpdateAnim();
             return;
         }
         var distanceplayer =   Vector3.Distance(playerposition.position, transform.position);
-        if(distanceplayer == null) {
-            return;
-        }
+      
         switch (currentstate)
         {
             case EnumState.Patrolling:
@@ -171,7 +194,7 @@ public class StatePatrol : MonoBehaviour
             if (distance < closestPoint)
             {
                 closestPoint = distance;
-                 closestindex = 1;
+                closestindex = i;
             }
 
         }

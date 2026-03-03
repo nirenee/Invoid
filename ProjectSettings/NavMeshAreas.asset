@@ -11,8 +11,8 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: 
-    cost: 1
+  - name: not optimize
+    cost: 2
   - name: 
     cost: 1
   - name: 
@@ -93,8 +93,8 @@ NavMeshProjectSettings:
     agentTypeID: -334000983
     agentRadius: 0.7
     agentHeight: 2
-    agentSlope: 48.1
-    agentClimb: 0.4
+    agentSlope: 0
+    agentClimb: 0.001
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2

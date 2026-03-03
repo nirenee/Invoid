@@ -7,7 +7,6 @@ public class DistanceEnemyAttack : MonoBehaviour
 {
   
     public Transform attackspawner;
-    public Transform playerposition;
     public float anglevision;
     public GameObject bullet;
     public float attackrange = 1;
@@ -17,11 +16,21 @@ public class DistanceEnemyAttack : MonoBehaviour
     private NavMeshAgent agent;
     private WanderState wanderState;
     private Animator animator;
+    private Transform playerposition;
 
 
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if(playerObject != null)
+        {
+          playerposition = playerObject.transform;
+        }
+        else
+        {
+            Debug.Log("there is no player in the scene");
+        }
+            agent = GetComponent<NavMeshAgent>();
         wanderState = GetComponent<WanderState>();
         animator = GetComponent<Animator>();
     }

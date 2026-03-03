@@ -169,9 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackspawner: {fileID: 0}
   playerposition: {fileID: 0}
-  anglevision: 0
-  bullet: {fileID: 0}
-  attackrange: 1
+  anglevision: 45
+  bullet: {fileID: 4062482987743613692, guid: c87429a204262cf41968e2ba6407864d, type: 3}
+  attackrange: 10
 --- !u!114 &-8628679203496981420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,9 +184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c4b947dee354c44e93bfb8c7d51e142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wanderarea: 0
-  wanderstop: 0
-  waitTime: 0
+  wanderarea: 20
+  wanderstop: 1
+  waitTime: 1
 --- !u!195 &5057712082004322816
 NavMeshAgent:
   m_ObjectHideFlags: 0

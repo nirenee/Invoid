@@ -16,6 +16,12 @@ public class EnemyHealth : MonoBehaviour
         bullet = FindObjectOfType<Bullet>();
         health = GetComponent<Health>();
         animator = GetComponent<Animator>();
+        if (bullet == null)
+            Debug.LogError("EnemyHealth: No Bullet found in scene.");
+        if (health == null)
+            Debug.LogError("EnemyHealth: No Health component on this GameObject.", this);
+        if (animator == null)
+            Debug.LogError("EnemyHealth: No Animator componen");
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -25,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (other.CompareTag("PlayerAttack"))
         {
-
+            Debug.Log("collision");
             animator.SetTrigger("gethit");
             health.ApplyDamage(bullet.bulletdamage);
             if (health.currenthealth <= 0)

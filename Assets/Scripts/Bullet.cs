@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     Rigidbody bulletrb;
     public float speedbullet;
     public float bullettime;
-    public float bulletdamage;
+    public float bulletdamage= 1f;
     private float time;
 
     private void Awake()
