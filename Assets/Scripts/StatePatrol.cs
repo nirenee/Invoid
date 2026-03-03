@@ -62,7 +62,19 @@ public class StatePatrol : MonoBehaviour
         if (patrolPoints != null && patrolPoints.Length > 0)
         {
             currentstate = EnumState.Patrolling;
-            indexwaypoints = 0;
+            float closestDistance = float.MaxValue;
+            int closestIndex = 0;
+
+            for (int i = 0; i < patrolPoints.Length; i++)
+            {
+                float distance = Vector3.Distance(transform.position, patrolPoints[i].position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestIndex = i;
+                }
+            }
+            indexwaypoints = closestIndex;
             NextWaypoint();
         }
       
@@ -141,8 +153,8 @@ public class StatePatrol : MonoBehaviour
             timewhenloseplayer += Time.deltaTime;
             if (timewhenloseplayer > loseplayer)
             {
-               
-               currentstate = EnumState.Patrolling;
+                currentstate = EnumState.Patrolling;
+                timewhenloseplayer = 0f;
                 ClosestPointCommand();
             }
 

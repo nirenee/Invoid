@@ -87,7 +87,7 @@ public class Playerlocomotion : MonoBehaviour
         directionmove = directionmove * moveSpeed;
 
         Vector3 movementVelocity = directionmove;
-        movementVelocity.y =PlayerRB.velocity.y;
+        movementVelocity.y = PlayerRB.velocity.y;
         PlayerRB.velocity = movementVelocity;
       
     }
@@ -157,7 +157,7 @@ public class Playerlocomotion : MonoBehaviour
                 animationman.PlayTargetAnimation("Falling Idle", true);
 
             }
-            inAirTimer = inAirTimer + Time.deltaTime;
+           inAirTimer = inAirTimer + Time.deltaTime;
            PlayerRB.AddForce(transform.forward * leapingspeed);
            PlayerRB.AddForce(-Vector3.up * fallinSpeed);
         }

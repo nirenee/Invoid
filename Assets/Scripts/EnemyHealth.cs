@@ -13,24 +13,26 @@ public class EnemyHealth : MonoBehaviour
 
     public void Awake()
     {
-        bullet = FindObjectOfType<Bullet>();
         health = GetComponent<Health>();
         animator = GetComponent<Animator>();
-        if (bullet == null)
-            Debug.LogError("EnemyHealth: No Bullet found in scene.");
         if (health == null)
+        {
             Debug.LogError("EnemyHealth: No Health component on this GameObject.", this);
+            return;
+        }     
         if (animator == null)
+        {
             Debug.LogError("EnemyHealth: No Animator componen");
-    }
+            return;
+        }
+     }
     private void OnTriggerEnter(Collider other)
     {
-        
-        
         Debug.Log("colision");
 
         if (other.CompareTag("PlayerAttack"))
         {
+            var bullet = other.GetComponent<Bullet>();
             Debug.Log("collision");
             animator.SetTrigger("gethit");
             health.ApplyDamage(bullet.bulletdamage);

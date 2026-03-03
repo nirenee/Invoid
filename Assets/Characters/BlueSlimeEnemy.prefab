@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2259d74129608f847babb443a5debac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentageloot: 100
+  percentageloot: 50
   objectdrop: {fileID: 5713719601084363730, guid: 00037aa7099f32e43bb18e906343b754,
     type: 3}
 --- !u!135 &4281851881150256742
