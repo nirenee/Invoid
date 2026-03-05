@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
         totaldiamonds += amount;
         counter.text = totaldiamonds.ToString();
     }
+    
 
 
 
