@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class CameraManager : MonoBehaviour
     public Transform camerapivot;
     public Transform cameratransform;
     Vector3 cameraFollow = Vector3.zero;
+    public Slider camspeed;
+    public float slidervalue;
     public float speedCamera= 2f;
     public float minimumhigh = -35;
     public float maximumhigh = 70;
@@ -25,7 +28,7 @@ public class CameraManager : MonoBehaviour
     private float CameraUpDown;
     private float CameraLeftRight;
     private float defaultposition;
-    public float cameraspeed = 2.0f;
+  
 
     private void Awake()
     {
@@ -33,9 +36,15 @@ public class CameraManager : MonoBehaviour
         inputManager = FindObjectOfType<InputManager>();
         cameratransform = Camera.main.transform;
         defaultposition = cameratransform.localPosition.z;
+        camspeed.value = speedCamera;
         
     }
 
+    public void ChangeCameraSpeed(float value)
+    {
+        slidervalue = value;
+        speedCamera = camspeed.value;
+    }
   
    public void FollowPlayer()
     {
@@ -63,7 +72,7 @@ public class CameraManager : MonoBehaviour
 
     }
 
-        public  void HandleCollisions()
+    public  void HandleCollisions()
     {
         float targetPosition = defaultposition;
         RaycastHit hit;

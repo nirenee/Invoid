@@ -9,7 +9,7 @@ public class AnimationManager : MonoBehaviour
    int vertical;
    bool isInteracting;
 
- private void Awake()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         horizontal = Animator.StringToHash("Horizontal");
@@ -23,16 +23,10 @@ public class AnimationManager : MonoBehaviour
     }
     
 
-
-  
-
-
     public void UpdateAnimator(float HorizontalMovement, float VerticalMovement  )
     {
         float trickedHorizontal;
         float trickedVertical;
-
-        #region TrickedHorizontal
 
         if (HorizontalMovement > 0 && HorizontalMovement < 0.55f)
         {
@@ -57,10 +51,6 @@ public class AnimationManager : MonoBehaviour
             trickedHorizontal = 0;
         }
 
-
-        #endregion
-
-        #region TrickedVertical
         if (VerticalMovement > 0 && VerticalMovement < 0.55)
         {
             trickedVertical = 0.5f;
@@ -83,8 +73,6 @@ public class AnimationManager : MonoBehaviour
         {
             trickedVertical = 0;
         }
-        #endregion
-
 
         animator.SetFloat(horizontal,trickedHorizontal, 0.1f, Time.deltaTime);
         animator.SetFloat(vertical,trickedVertical, 0.1f, Time.deltaTime);

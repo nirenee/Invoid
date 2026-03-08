@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     Playerlocomotion playerlocomotion;
     AnimationManager animatormanager;
     BulletManager bulletmanager;
+    PauseMenu pausemenu;
 
     public Vector2 movementInput;
     public Vector2 cameraInput;
@@ -28,6 +29,7 @@ public class InputManager : MonoBehaviour
     public bool jumping_button;
     public bool attack_button;
     public bool pickup_button;
+    public bool menu_button;
     private float lastAttackTime;
 
     private float time= 0.5f;
@@ -38,8 +40,9 @@ public class InputManager : MonoBehaviour
         animatormanager = GetComponent<AnimationManager>();
         playerlocomotion = GetComponent<Playerlocomotion>();
         bulletmanager = FindObjectOfType<BulletManager>();
-       
-        if (animatormanager == null || playerlocomotion == null || bulletmanager == null )
+        pausemenu = FindObjectOfType<PauseMenu>();
+
+        if (animatormanager == null || playerlocomotion == null || bulletmanager == null || pausemenu == null )
         {
             return;
         }
@@ -62,7 +65,10 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.Attack.performed += i => attack_button = true;
             playerControls.PlayerActions.Attack.canceled += i => attack_button = false;
 
-            playerControls.PlayerActions.Pickup.performed += i => pickup_button = true; 
+            playerControls.PlayerActions.Pickup.performed += i => pickup_button = true;
+            playerControls.PlayerActions.Pickup.performed += i => pickup_button = true;
+
+            playerControls.PlayerActions.PauseMenu.performed += i => menu_button = true;
         }
 
         playerControls.Enable();
@@ -72,12 +78,12 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleJumpInput();
-
         HandleDashInput();
         HandleMovementInput();
         HandleAttack();
-        HandleAttack();
-     
+        HandlePauseMenu();
+
+
 
     }
     private void OnDisable()
@@ -105,6 +111,15 @@ public class InputManager : MonoBehaviour
         {
             dash_button = false;
             playerlocomotion.HandleDash();
+        }
+    }
+
+    private void HandlePauseMenu()
+    {
+        if (menu_button)
+        {
+            menu_button = false;
+            pausemenu.Pause();
         }
     }
 

@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distancestop: 1
-  enemyvisiondistance: 5
+  enemyvisiondistance: 15
   enemyvisionangle: 360
   loseplayer: 2
 --- !u!1 &235783769136449247

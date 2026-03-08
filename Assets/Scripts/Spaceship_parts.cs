@@ -21,7 +21,7 @@ public class Spaceship_parts : MonoBehaviour
     }
     public void SpaceObjectActive()
     {
-        if (inventory.totaldiamonds >= 50)
+        if (inventory.totaldiamonds >= 100)
         {
             partofspaceship.SetActive(true);
         }
