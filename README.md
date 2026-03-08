@@ -15,7 +15,7 @@ The game supports both **Keyboard & Mouse** and **Xbox Controllers**.
 | Jump              | Spacebar                | A / Button South           |
 | Attack            | Left Click / Mouse 1   | RT (Right Trigger)         |
 | Interact / Pick up| E                       | X / Button West            |
-|Pause Menu | ESC                   |       Menu Button
+|Pause Menu     | ESC                         |       Menu Button
 
 
 > **Pause & Options**
