@@ -89,9 +89,10 @@ Once the project is loaded and ready in the Unity Editor, you have two options t
 **Build and Run**: Go to File → Build and Run to compile the game into a standalone executable. The game will automatically launch once the build process is complete.
 
 # Credits
-### Design and Programming
+### Design and Programming:
 Irene Onsurbe Casado
-
+### Mentoring:
+Luka Rolak
 ### Music:
 - Cleyton Kauffman - Exploration Theme
 - Zander Noriega - Blinding Lights
