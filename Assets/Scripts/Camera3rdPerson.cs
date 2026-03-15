@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager: MonoBehaviour
 {
     InputManager inputManager;
     private Transform playertransform;
