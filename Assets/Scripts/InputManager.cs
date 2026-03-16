@@ -30,9 +30,10 @@ public class InputManager : MonoBehaviour
     public bool attack_button;
     public bool pickup_button;
     public bool menu_button;
+    public bool cameraperspective;
     private float lastAttackTime;
+    
 
-    private float time= 0.5f;
 
     private void Awake()
     {
@@ -69,6 +70,7 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerActions.Pickup.performed += i => pickup_button = true;
 
             playerControls.PlayerActions.PauseMenu.performed += i => menu_button = true;
+            playerControls.MenuActions.ChangePerspective.performed += i => cameraperspective = true;
         }
 
         playerControls.Enable();
@@ -82,9 +84,6 @@ public class InputManager : MonoBehaviour
         HandleMovementInput();
         HandleAttack();
         HandlePauseMenu();
-
-
-
     }
     private void OnDisable()
     {
@@ -92,8 +91,7 @@ public class InputManager : MonoBehaviour
     }
 
     private void HandleMovementInput()
-    {
-        
+    {  
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
 
@@ -148,10 +146,7 @@ public class InputManager : MonoBehaviour
             }
 
         lastAttackTime = Time.time;
-        bulletmanager.HandleBullet();
-
-        
-       
+        bulletmanager.HandleBullet();    
     }
 
     private void StartVibration()

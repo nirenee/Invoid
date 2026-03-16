@@ -366,6 +366,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MenuActions",
+            "id": "c7adb64a-e699-4167-ab63-ac9fd01d88f3",
+            "actions": [
+                {
+                    "name": "Change Perspective",
+                    "type": "Button",
+                    "id": "961578d0-5f81-4e72-8249-a901ea7dc7cd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f8339781-ec2e-4a52-81ed-a38e9d9dc8fe",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change Perspective",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

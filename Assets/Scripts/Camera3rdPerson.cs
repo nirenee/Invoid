@@ -37,7 +37,8 @@ public class CameraManager: MonoBehaviour
         cameratransform = Camera.main.transform;
         defaultposition = cameratransform.localPosition.z;
         camspeed.value = speedCamera;
-        
+        cameratransform.localPosition = new Vector3(0f, -0.5f, -3.5f);
+        defaultposition = cameratransform.localPosition.z;
     }
 
     public void ChangeCameraSpeed(float value)
@@ -48,7 +49,7 @@ public class CameraManager: MonoBehaviour
   
    public void FollowPlayer()
     {
-        Vector3 playerscope= playertransform.position + new Vector3(2f,0f,1f);
+        Vector3 playerscope= playertransform.position + new Vector3(1f,0f,1f);
         Vector3 Targetposition = Vector3.SmoothDamp(transform.position, playerscope, ref cameraFollow, speedCamera);
         transform.position = playerscope;
     }
