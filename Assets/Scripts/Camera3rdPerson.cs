@@ -14,7 +14,7 @@ public class CameraManager: MonoBehaviour
     Vector3 cameraFollow = Vector3.zero;
     public Slider camspeed;
     public float slidervalue;
-    public float speedCamera= 2f;
+    public float speedCamera= 360f;
     public float minimumhigh = -35;
     public float maximumhigh = 70;
     public float minangle = 45;
@@ -34,11 +34,8 @@ public class CameraManager: MonoBehaviour
     {
         playertransform = FindObjectOfType<playerManager>().transform;
         inputManager = FindObjectOfType<InputManager>();
-        cameratransform = Camera.main.transform;
-        defaultposition = cameratransform.localPosition.z;
-        camspeed.value = speedCamera;
-        cameratransform.localPosition = new Vector3(0f, -0.5f, -3.5f);
-        defaultposition = cameratransform.localPosition.z;
+        cameratransform.position = camerapivot.position;
+        cameratransform.rotation = camerapivot.rotation;
     }
 
     public void ChangeCameraSpeed(float value)
@@ -49,48 +46,33 @@ public class CameraManager: MonoBehaviour
   
    public void FollowPlayer()
     {
-        Vector3 playerscope= playertransform.position + new Vector3(1f,0f,1f);
-        Vector3 Targetposition = Vector3.SmoothDamp(transform.position, playerscope, ref cameraFollow, speedCamera);
-        transform.position = playerscope;
+        cameratransform.position = camerapivot.position;
     }
 
     public void Rotate()
     {
-        CameraUpDown = CameraUpDown + (inputManager.cameraInput.x * speedCamera);
-        CameraLeftRight = CameraLeftRight - ( inputManager.cameraInput.y * speedCamera);
+        CameraUpDown = CameraUpDown + (inputManager.cameraInput.x * speedCamera * Time.deltaTime);
+        CameraLeftRight = CameraLeftRight - (inputManager.cameraInput.y * speedCamera * Time.deltaTime);
         CameraLeftRight = Mathf.Clamp(CameraLeftRight, minimumhigh, maximumhigh);
 
-       
-        Vector3 rotation = Vector3.zero;
-        rotation.y = CameraUpDown;
-        Quaternion targetRotation = Quaternion.Euler(rotation);
-        transform.rotation = targetRotation;
-
-        rotation = Vector3.zero;
-        rotation.x = CameraLeftRight;
-        targetRotation = Quaternion.Euler(rotation);
-        camerapivot.localRotation = targetRotation;
-
+        Quaternion targetRotation = Quaternion.Euler(CameraLeftRight, CameraUpDown, 0f);
+        camerapivot.rotation = targetRotation;
+        cameratransform.rotation = camerapivot.rotation;
     }
 
     public  void HandleCollisions()
     {
         float targetPosition = defaultposition;
         RaycastHit hit;
-        Vector3 direction = cameratransform.position - camerapivot.position;
-        direction.Normalize();
-        if(Physics.SphereCast(camerapivot.position, cameraCollisionRadius,direction, out hit, Mathf.Abs(targetPosition),collisionLayers)){
+        Vector3 direction = camerapivot.TransformDirection(Vector3.back);
 
-            float distance = Vector3.Distance(camerapivot.position, hit.point);
-            targetPosition =  -(distance-CameraCollisionoffset);
-
-        }
-
-        if(Mathf.Abs (targetPosition) < minCollisionOffset)
+        if (Physics.SphereCast(camerapivot.position, cameraCollisionRadius, direction,
+                                out hit, targetPosition, collisionLayers))
         {
-            targetPosition = targetPosition - minCollisionOffset;
-            
+            float distance = Vector3.Distance(camerapivot.position, hit.point);
+            targetPosition = Mathf.Max(minCollisionOffset, distance - CameraCollisionoffset);
         }
+
         cameraVecPos.z = Mathf.Lerp(cameratransform.localPosition.z, targetPosition, 0.2f);
         cameratransform.localPosition = cameraVecPos;
     }

@@ -4064,10 +4064,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camerapivot: {fileID: 1242146042}
-  cameratransform: {fileID: 0}
+  cameratransform: {fileID: 330585546}
   camspeed: {fileID: 580300048}
   slidervalue: 0
-  speedCamera: 3
+  speedCamera: 60
   minimumhigh: -20
   maximumhigh: 50
   minangle: 45
@@ -4649,6 +4649,7 @@ MonoBehaviour:
   attack_button: 0
   pickup_button: 0
   menu_button: 0
+  cameraperspective: 0
 --- !u!136 &692434968
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8827,7 +8828,7 @@ Transform:
   m_GameObject: {fileID: 1599797069}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.44, z: 0.4}
+  m_LocalPosition: {x: 0, y: 1.44, z: 0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

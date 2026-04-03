@@ -60,7 +60,7 @@ public class playerManager : MonoBehaviour
         {
             bool thirdEnabled = !enabled;
             camera3rdPerson.enabled = thirdEnabled;
-            camera3rdPerson.gameObject.SetActive(thirdEnabled);
+         
         }
     }
 
@@ -69,7 +69,7 @@ public class playerManager : MonoBehaviour
         if (camera3rdPerson != null)
         {
             camera3rdPerson.enabled = enabled;
-            camera3rdPerson.gameObject.SetActive(enabled);
+           
         }
 
         if (camera1stPerson != null)
@@ -92,7 +92,7 @@ public class playerManager : MonoBehaviour
         {
             camera3rdPerson.FollowPlayer();
             camera3rdPerson.Rotate();
-            camera3rdPerson.HandleCollisions();
+           // camera3rdPerson.HandleCollisions();
         }
 
         isInteracting = animator.GetBool("isInteracting");
