@@ -36,6 +36,7 @@ public class CameraManager: MonoBehaviour
         inputManager = FindObjectOfType<InputManager>();
         cameratransform.position = camerapivot.position;
         cameratransform.rotation = camerapivot.rotation;
+      
     }
 
     public void ChangeCameraSpeed(float value)
@@ -46,6 +47,7 @@ public class CameraManager: MonoBehaviour
   
    public void FollowPlayer()
     {
+        camerapivot.position = playertransform.position + new Vector3(0f, 2f,-2f);
         cameratransform.position = camerapivot.position;
     }
 
