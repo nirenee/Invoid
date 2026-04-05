@@ -2183,11 +2183,11 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 1.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1242146042}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -4090,8 +4090,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1242146042}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641721220
@@ -5913,6 +5912,10 @@ PrefabInstance:
         type: 3}
       insertIndex: 2
       addedObject: {fileID: 1206883058}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ffb88c8a6a846f142a31304a350a30e5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1242146042}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffb88c8a6a846f142a31304a350a30e5,
         type: 3}
@@ -7513,7 +7516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242146042}
   m_Layer: 0
-  m_Name: Camerapivot
+  m_Name: 3rdPersonpivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7527,13 +7530,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242146041}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 1.84, z: -1.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 330585546}
-  m_Father: {fileID: 614428140}
+  m_Children: []
+  m_Father: {fileID: 692434975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1257538332
 GameObject:
@@ -8813,7 +8815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599797070}
   m_Layer: 0
-  m_Name: Camerapivot
+  m_Name: 1stpersonpivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11090,6 +11092,7 @@ SceneRoots:
   - {fileID: 2014500871}
   - {fileID: 392545632}
   - {fileID: 958302951}
+  - {fileID: 330585546}
   - {fileID: 614428140}
   - {fileID: 384337850}
   - {fileID: 1117856491}
