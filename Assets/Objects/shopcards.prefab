@@ -93,9 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931344367fa9f8147977e5bd0d508058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemTitle: {fileID: 0}
-  ItemPrice: {fileID: 0}
-  ItemDescription: {fileID: 0}
+  ItemTitle: {fileID: 8403446022596529661}
+  ItemPrice: {fileID: 3523228910300383481}
+  ItemDescription: {fileID: 7357774040384968532}
   Buy: {fileID: 7288813057731395341}
   ItemImg: {fileID: 0}
 --- !u!1 &3348907650216405941

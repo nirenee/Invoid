@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,8 +31,8 @@ public class Shop : MonoBehaviour
     void Start()
     {
         ShopUI.gameObject.SetActive(false);
-       // Buy.onClick.AddListener(BuyMode);
         LoadShopItems();
+        ActiveItemstoPurchase();
     }
 
     private void OnTriggerStay(Collider other)
@@ -50,10 +51,32 @@ public class Shop : MonoBehaviour
             shopCardslist[i].ItemDescription.text = itemlist[i].Description;
             shopCardslist[i].ItemPrice.text=  itemlist[i].Prize.ToString() + "gems";
             shopCardslist[i].ItemImg = itemlist[i].Image;
+            int itemIndex = i;
+            shopCardslist[i].Buy.onClick.AddListener(()=>BuyMode(itemIndex));
         }
     }
-    private void BuyMode()
+    public void ActiveItemstoPurchase()
     {
-        inventory.totaldiamonds -= price;
+        for (int i = 0; i < itemlist.Length; i++)
+        {
+            if(inventory.totaldiamonds >= itemlist[i].Prize)
+            {
+                shopCardslist[i].Buy.interactable = true;
+            }
+            else
+            {
+                shopCardslist[i].Buy.interactable = false;
+            }
+        }
+    }
+    private void BuyMode(int index)
+    {
+        if(inventory.totaldiamonds >= itemlist[index].Prize)
+        {
+            inventory.totaldiamonds -= itemlist[index].Prize;
+            Destroy(shopCardslist[index].gameObject);
+            ActiveItemstoPurchase();
+        }
+       
     }
 }

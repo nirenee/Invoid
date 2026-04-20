@@ -9,8 +9,11 @@ public class Inventory : MonoBehaviour
    
     public TextMeshProUGUI counter;
     public float totaldiamonds;
-  
 
+    public void Update()
+    {
+        counter.text = totaldiamonds.ToString(); 
+    }
     public void AddDiamonds(float amount)
     {
         if(counter == null)
