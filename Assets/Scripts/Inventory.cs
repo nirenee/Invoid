@@ -12,7 +12,10 @@ public class Inventory : MonoBehaviour
 
     public void Update()
     {
-        counter.text = totaldiamonds.ToString(); 
+        if (counter != null)
+        {
+            counter.text = totaldiamonds.ToString();
+        }
     }
     public void AddDiamonds(float amount)
     {

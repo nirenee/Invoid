@@ -8,21 +8,28 @@ using UnityEngine.UI;
 public class Shop : MonoBehaviour
 {
     public Canvas ShopUI;
-    // public GameObject Objecteyes;
     public ShopItemSO[] itemlist;
     public ShopTemplate[] shopCardslist;
-    public TMP_Text ObjectTitle;
-    public TMP_Text ObjectPrice;
-    public TMP_Text ObjectDescription;
     private InputManager inputmanager;
     public Button Buy;
+
     public Inventory inventory;
+    private Health playerhealth;
+    private Bullet bullet;
+    private BulletManager bulletmanager;
+    private Playerlocomotion playerspeed;
+    private InputManager attackspeed;
     public float price;
     private void Awake()
     {
         inputmanager = FindObjectOfType<InputManager>();
         inventory = FindObjectOfType<Inventory>();
-        if (inputmanager != null || inventory != null)
+        playerhealth = FindObjectOfType<Health>();
+        bullet = FindObjectOfType<Bullet>();
+        bulletmanager = FindObjectOfType<BulletManager>();
+        playerspeed = FindObjectOfType<Playerlocomotion>();
+        attackspeed = FindObjectOfType<InputManager>();
+        if (inputmanager == null || inventory == null || playerhealth == null )
         {
             return;
         }
@@ -74,9 +81,19 @@ public class Shop : MonoBehaviour
         if(inventory.totaldiamonds >= itemlist[index].Prize)
         {
             inventory.totaldiamonds -= itemlist[index].Prize;
+            UpgradeHabilities(index);
             Destroy(shopCardslist[index].gameObject);
             ActiveItemstoPurchase();
         }
        
     }
+    private void UpgradeHabilities(int index)
+    {
+        bullet.bulletdamage += itemlist[index].DamageBooster;
+        playerhealth.MaxHealth += itemlist[index].HealthBooster;
+        playerspeed.moveSpeed += itemlist[index].speedBooster;
+        bulletmanager.bulletrange += itemlist[index].RangeBooster;
+        attackspeed.cooldowntime += itemlist[index].AttackSpeedBooster;
+
+}
 }

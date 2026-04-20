@@ -14,7 +14,7 @@ public class ShopItemSO : ScriptableObject
     public float speedBooster;
     public float DamageBooster;
     public float RangeBooster;
-    public float AtackSpeedBooster;
+    public float AttackSpeedBooster;
     public float HealthBooster;
 
 

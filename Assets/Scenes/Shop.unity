@@ -4350,9 +4350,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c1096dc541eef644b49b43fe792e393, type: 2}
   shopCardslist:
   - {fileID: 1157315625}
-  ObjectTitle: {fileID: 0}
-  ObjectPrice: {fileID: 0}
-  ObjectDescription: {fileID: 0}
   Buy: {fileID: 0}
   inventory: {fileID: 0}
   price: 0
@@ -17722,6 +17719,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: shopcards
       objectReference: {fileID: 0}
+    - target: {fileID: 7288813057731395341, guid: 6bbb7dc875ddd9f45b0a49061c5f37a3,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0.6496762
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288813057731395341, guid: 6bbb7dc875ddd9f45b0a49061c5f37a3,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: 0.5699933
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288813057731395341, guid: 6bbb7dc875ddd9f45b0a49061c5f37a3,
+        type: 3}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288813057731395341, guid: 6bbb7dc875ddd9f45b0a49061c5f37a3,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.63091063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288813057731395341, guid: 6bbb7dc875ddd9f45b0a49061c5f37a3,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288813057731395341, guid: 6bbb7dc875ddd9f45b0a49061c5f37a3,
+        type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23420,9 +23447,6 @@ MonoBehaviour:
   ShopUI: {fileID: 508579948}
   itemlist: []
   shopCardslist: []
-  ObjectTitle: {fileID: 0}
-  ObjectPrice: {fileID: 0}
-  ObjectDescription: {fileID: 0}
   Buy: {fileID: 0}
   inventory: {fileID: 0}
   price: 0

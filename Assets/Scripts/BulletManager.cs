@@ -7,7 +7,7 @@ public class BulletManager : MonoBehaviour
 {
 
     [Header("Bullet")]
-    public float bulletrange= 1000f;
+    public float bulletrange= 100f;
     public Transform bulletposini;
     public GameObject bulletprefab;
 
