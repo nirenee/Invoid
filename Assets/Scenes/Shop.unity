@@ -3851,7 +3851,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1527559024}
   m_HandleRect: {fileID: 1527559023}
   m_Direction: 2
-  m_Value: -0.0000007758181
+  m_Value: 0
   m_Size: 0.80332
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4667,7 +4667,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2827015d016cf34e95a65ede98eb1af,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546594209}
   m_SourcePrefab: {fileID: 100100000, guid: e2827015d016cf34e95a65ede98eb1af, type: 3}
 --- !u!1 &541147919 stripped
 GameObject:
@@ -21979,6 +21983,33 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7183a75afe981473889ad1caa215f6cf, type: 3}
+--- !u!1 &1546594207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e2827015d016cf34e95a65ede98eb1af,
+    type: 3}
+  m_PrefabInstance: {fileID: 530975781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1546594209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546594207}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1547777902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1029693891479639306, guid: ef7f45de93a47486a8d931a69beea72a,
@@ -22867,6 +22898,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShopUI: {fileID: 508579948}
   Objecteyes: {fileID: 115712841}
+  Buy: {fileID: 0}
+  inventory: {fileID: 0}
+  price: 0
 --- !u!65 &1610736474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22883,7 +22917,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
@@ -25962,7 +25996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 59.00401}
+  m_AnchoredPosition: {x: 0, y: 59.00399}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &1847134560
