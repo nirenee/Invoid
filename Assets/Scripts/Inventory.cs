@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI counter;
     public float totaldiamonds;
 
-    public void Update()
+    public void Start()
     {
         if (counter != null)
         {

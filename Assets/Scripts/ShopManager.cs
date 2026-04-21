@@ -29,10 +29,8 @@ public class Shop : MonoBehaviour
         bulletmanager = FindObjectOfType<BulletManager>();
         playerspeed = FindObjectOfType<Playerlocomotion>();
         attackspeed = FindObjectOfType<InputManager>();
-        if (inputmanager == null || inventory == null || playerhealth == null )
-        {
-            return;
-        }
+    
+
     }
 
     void Start()
@@ -66,6 +64,7 @@ public class Shop : MonoBehaviour
     {
         for (int i = 0; i < itemlist.Length; i++)
         {
+            Debug.Log(inventory.totaldiamonds);
             if(inventory.totaldiamonds >= itemlist[i].Prize)
             {
                 shopCardslist[i].Buy.interactable = true;
@@ -82,18 +81,29 @@ public class Shop : MonoBehaviour
         {
             inventory.totaldiamonds -= itemlist[index].Prize;
             UpgradeHabilities(index);
-            Destroy(shopCardslist[index].gameObject);
+            CanvasGroup cg = shopCardslist[index].GetComponent<CanvasGroup>();
+            shopCardslist[index].Buy.gameObject.SetActive(false);
+            if (cg == null) cg = shopCardslist[index].AddComponent<CanvasGroup>();
+            cg.alpha = 0.5f;
+
             ActiveItemstoPurchase();
         }
        
     }
     private void UpgradeHabilities(int index)
     {
-        bullet.bulletdamage += itemlist[index].DamageBooster;
-        playerhealth.MaxHealth += itemlist[index].HealthBooster;
-        playerspeed.moveSpeed += itemlist[index].speedBooster;
-        bulletmanager.bulletrange += itemlist[index].RangeBooster;
-        attackspeed.cooldowntime += itemlist[index].AttackSpeedBooster;
+        if (bullet != null)
+        {
+            bullet.bulletdamage += itemlist[index].DamageBooster;
+        }
+        else
+        {
+            Debug.LogWarning("No se pudo mejorar el daño: No hay script Bullet en la escena.");
+        }
 
-}
+        if (playerhealth != null) playerhealth.MaxHealth += itemlist[index].HealthBooster;
+        if (playerspeed != null) playerspeed.moveSpeed += itemlist[index].speedBooster;
+        if (bulletmanager != null) bulletmanager.bulletrange += itemlist[index].RangeBooster;
+        if (attackspeed != null) attackspeed.cooldowntime += itemlist[index].AttackSpeedBooster;
+    }
 }
