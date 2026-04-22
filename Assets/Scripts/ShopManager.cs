@@ -10,10 +10,9 @@ public class Shop : MonoBehaviour
     public Canvas ShopUI;
     public ShopItemSO[] itemlist;
     public ShopTemplate[] shopCardslist;
+    public GameObject doorchangescene;
     private InputManager inputmanager;
-    public Button Buy;
-
-    public Inventory inventory;
+    private Inventory inventory;
     private Health playerhealth;
     private Bullet bullet;
     private BulletManager bulletmanager;
@@ -46,6 +45,7 @@ public class Shop : MonoBehaviour
         if (inputmanager.pickup_button){
             ShopUI.gameObject.SetActive(true);
             inputmanager.pickup_button = false;
+            doorchangescene.gameObject.SetActive(false);
         }
     }
     public void LoadShopItems()
