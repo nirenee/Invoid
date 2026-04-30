@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public float bulletdamage;
     private int enemycounter;
     private Coroutine damagecoroutine;
-    
+
   
     private void Awake()
     {
@@ -23,15 +23,15 @@ public class PlayerHealth : MonoBehaviour
 
         if (collision.gameObject.CompareTag("deathwall"))
         {
+            GameManager.Instance.ResetGems();
             Destroy(this.gameObject);
+            
             SceneManager.LoadScene("GameOver");
 
         }
         if (collision.gameObject.CompareTag("EnemyAttack"))
         {
             health.ApplyDamage(bulletdamage);
-
-
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
@@ -42,9 +42,6 @@ public class PlayerHealth : MonoBehaviour
             
 
         }
-      
-     
-
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -52,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
         {
             return;
         }
-        Debug.Log("no colliison");
         enemycounter = Mathf.Max(0, enemycounter - 1);
         if(enemycounter == 0)
         {
@@ -73,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if (health.currenthealth <= 0)
         {
+            GameManager.Instance.ResetGems();
             Destroy(this.gameObject);
             SceneManager.LoadScene("GameOver");
         }

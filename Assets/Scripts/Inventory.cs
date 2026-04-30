@@ -10,6 +10,10 @@ public class Inventory : MonoBehaviour
     public TextMeshProUGUI counter;
     public float totaldiamonds;
 
+    public void Awake()
+    {
+          totaldiamonds = GameManager.Instance.gemscount;
+    }
     public void Start()
     {
         if (counter != null)
@@ -17,7 +21,7 @@ public class Inventory : MonoBehaviour
             counter.text = totaldiamonds.ToString();
         }
     }
-    public void AddDiamonds(float amount)
+    public void AddDiamonds(int amount)
     {
         if(counter == null)
         {
@@ -27,11 +31,9 @@ public class Inventory : MonoBehaviour
         {
             return;
         }
-        totaldiamonds += amount;
+         GameManager.Instance.AddGems(amount);
+        totaldiamonds = GameManager.Instance.gemscount;
         counter.text = totaldiamonds.ToString();
     }
-    
-
-
 
 }

@@ -183,7 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackspawner: {fileID: 1797914689}
-  playerposition: {fileID: 692434975}
   anglevision: 45
   bullet: {fileID: 4062482987743613692, guid: c87429a204262cf41968e2ba6407864d, type: 3}
   attackrange: 10
@@ -1798,13 +1797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7506c29f3309e642bf0d99a021fad57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolPoints:
-  - {fileID: 223013473}
-  - {fileID: 1323654802}
-  - {fileID: 243742332}
-  - {fileID: 1959596183}
   distancestop: 0
-  playerposition: {fileID: 692434975}
   enemyvisiondistance: 5
   enemyvisionangle: 360
   loseplayer: 2
@@ -1870,7 +1863,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: ef48c39740a013847ad78023042a9378, type: 2}
   m_sharedMaterial: {fileID: -1241463702777845112, guid: ef48c39740a013847ad78023042a9378,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -1241463702777845112, guid: ef48c39740a013847ad78023042a9378, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -2099,6 +2093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camerapivot: {fileID: 1242146042}
   cameratransform: {fileID: 0}
+  camspeed: {fileID: 0}
+  slidervalue: 0
   speedCamera: 0.2
   minimumhigh: -20
   maximumhigh: 50
@@ -2110,7 +2106,6 @@ MonoBehaviour:
     m_Bits: 1
   CameraCollisionoffset: 0.2
   minCollisionOffset: 0.2
-  cameraspeed: 2
 --- !u!4 &614428140
 Transform:
   m_ObjectHideFlags: 0
@@ -2548,6 +2543,8 @@ MonoBehaviour:
   jumping_button: 0
   attack_button: 0
   pickup_button: 0
+  menu_button: 0
+  cameraperspective: 0
 --- !u!136 &692434968
 CapsuleCollider:
   m_ObjectHideFlags: 0
