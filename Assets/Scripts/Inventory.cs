@@ -11,9 +11,16 @@ public class Inventory : MonoBehaviour
     public float totaldiamonds;
 
     public void Awake()
-    {
+    {     
           totaldiamonds = GameManager.Instance.gemscount;
     }
+
+    public void Update()
+    {
+        totaldiamonds = GameManager.Instance.gemscount;
+    }
+
+
     public void Start()
     {
         if (counter != null)
@@ -31,9 +38,9 @@ public class Inventory : MonoBehaviour
         {
             return;
         }
-         GameManager.Instance.AddGems(amount);
-        totaldiamonds = GameManager.Instance.gemscount;
-        counter.text = totaldiamonds.ToString();
+        GameManager.Instance.AddGems(amount);
+     
+        counter.text = GameManager.Instance.gemscount.ToString();
     }
 
 }

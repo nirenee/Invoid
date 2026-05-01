@@ -18,6 +18,7 @@ public class Shop : MonoBehaviour
     private BulletManager bulletmanager;
     private Playerlocomotion playerspeed;
     private InputManager attackspeed;
+    private GameManager gameManager;
     public float price;
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class Shop : MonoBehaviour
         bulletmanager = FindObjectOfType<BulletManager>();
         playerspeed = FindObjectOfType<Playerlocomotion>();
         attackspeed = FindObjectOfType<InputManager>();
-    
+        gameManager = FindObjectOfType<GameManager>();
 
     }
 

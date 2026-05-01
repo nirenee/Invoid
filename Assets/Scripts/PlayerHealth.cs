@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-  Health health;
+    Health health;
     public float damageReceived;
     public float bulletdamage;
     private int enemycounter;
     private Coroutine damagecoroutine;
+    private GameManager gamemanager;
 
   
     private void Awake()
     {
         health = GetComponent<Health>();
+        gamemanager = FindObjectOfType<GameManager>();
     }
 
     private void OnCollisionEnter(Collision collision)
