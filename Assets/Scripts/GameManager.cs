@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            PlayerPrefs.DeleteAll();
             LoadData();
         }
         else

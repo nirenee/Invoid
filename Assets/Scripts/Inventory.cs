@@ -8,25 +8,23 @@ public class Inventory : MonoBehaviour
 {
    
     public TextMeshProUGUI counter;
-    public float totaldiamonds;
-
-    public void Awake()
-    {     
-          totaldiamonds = GameManager.Instance.gemscount;
-    }
-
-    public void Update()
+    public GameManager gameManager;
+    private void Awake()
     {
-        totaldiamonds = GameManager.Instance.gemscount;
+        gameManager = FindObjectOfType<GameManager>();
     }
-
 
     public void Start()
     {
         if (counter != null)
         {
-            counter.text = totaldiamonds.ToString();
+            counter.text = GameManager.Instance.gemscount.ToString();
         }
+    }
+    public void UpdateCounter()
+    {
+        if (counter != null)
+            counter.text = GameManager.Instance.gemscount.ToString();
     }
     public void AddDiamonds(int amount)
     {

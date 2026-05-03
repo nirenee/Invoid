@@ -9,11 +9,13 @@ public class Spaceship_parts : MonoBehaviour
     public GameObject spaceship;
     private InputManager inputManager;
     private Inventory inventory;
+    public GameManager gameManager;
 
     private void Awake()
     {
         inventory = FindObjectOfType<Inventory>();
         inputManager = FindObjectOfType<InputManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
     private void Update()
     {
@@ -21,7 +23,7 @@ public class Spaceship_parts : MonoBehaviour
     }
     public void SpaceObjectActive()
     {
-        if (inventory.totaldiamonds >= 100)
+        if (GameManager.Instance.gemscount >= 100)
         {
             partofspaceship.SetActive(true);
         }

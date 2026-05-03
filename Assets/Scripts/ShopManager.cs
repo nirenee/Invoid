@@ -65,8 +65,8 @@ public class Shop : MonoBehaviour
     {
         for (int i = 0; i < itemlist.Length; i++)
         {
-            Debug.Log(inventory.totaldiamonds);
-            if(inventory.totaldiamonds >= itemlist[i].Prize)
+            Debug.Log(GameManager.Instance.gemscount);
+            if(GameManager.Instance.gemscount >= itemlist[i].Prize)
             {
                 shopCardslist[i].Buy.interactable = true;
             }
@@ -78,9 +78,10 @@ public class Shop : MonoBehaviour
     }
     private void BuyMode(int index)
     {
-        if(inventory.totaldiamonds >= itemlist[index].Prize)
+        if(GameManager.Instance.gemscount >= itemlist[index].Prize)
         {
-            inventory.totaldiamonds -= itemlist[index].Prize;
+            GameManager.Instance.gemscount -= itemlist[index].Prize;
+            inventory.UpdateCounter();
             UpgradeHabilities(index);
             CanvasGroup cg = shopCardslist[index].GetComponent<CanvasGroup>();
             shopCardslist[index].Buy.gameObject.SetActive(false);
