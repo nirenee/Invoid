@@ -3101,6 +3101,7 @@ MonoBehaviour:
   partofspaceship: {fileID: 1138151247}
   spaceshipopen: {fileID: 1712492791}
   spaceship: {fileID: 1051803155}
+  gameManager: {fileID: 0}
 --- !u!65 &560053147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4413,7 +4414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: {fileID: 523438323}
-  totaldiamonds: 0
+  gameManager: {fileID: 0}
 --- !u!81 &692434983
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8852,12 +8853,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9d03a187591b3df4fa1410daadb8ae41,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 896
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d03a187591b3df4fa1410daadb8ae41,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -239
+      value: 1164
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d03a187591b3df4fa1410daadb8ae41,
         type: 3}

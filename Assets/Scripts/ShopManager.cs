@@ -58,6 +58,7 @@ public class Shop : MonoBehaviour
             shopCardslist[i].ItemPrice.text=  itemlist[i].Prize.ToString() + "gems";
             shopCardslist[i].ItemImg = itemlist[i].Image;
             int itemIndex = i;
+            shopCardslist[i].Buy.onClick.RemoveAllListeners();
             shopCardslist[i].Buy.onClick.AddListener(()=>BuyMode(itemIndex));
         }
     }
