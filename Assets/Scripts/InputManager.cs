@@ -136,14 +136,17 @@ public class InputManager : MonoBehaviour
 
     public void HandleAttack()
     {
+        animatormanager.animator.SetBool("isShooting", attack_button);
         if (!attack_button)
         {
+           
             return;
         }
            if (Time.time - lastAttackTime < cooldowntime)
             {
             return;
             }
+
 
         lastAttackTime = Time.time;
         bulletmanager.HandleBullet();    

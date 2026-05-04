@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b01eebe45aaf7fe4cab95265e0707689, type: 3}
+  m_Name: ChunksDatabase
+  m_EditorClassIdentifier: 
+  Chunks:
+  - prefab: {fileID: 579605869450821529, guid: 2a835edee81e5914d9aab77a9402f843, type: 3}
+    type: 0
+    weight: 0
+  - prefab: {fileID: 9168681320880921038, guid: b479d5b79420ab146a7a62d42b75a028,
+      type: 3}
+    type: 1
+    weight: 0
+  - prefab: {fileID: 5917643063480669357, guid: 9dd8237c93c7f074f9765046f816f46f,
+      type: 3}
+    type: 3
+    weight: 5
+  - prefab: {fileID: 47828779619878412, guid: 9923afbf131e26d42908130b7c9f32e5, type: 3}
+    type: 2
+    weight: 7
+  Corridors:
+  - prefab: {fileID: 7787731428735458732, guid: 731493fa587b1154bb1cd1710cae04b7,
+      type: 3}
+    type: 0
+    weight: 1
