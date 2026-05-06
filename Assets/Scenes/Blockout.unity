@@ -2352,6 +2352,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 10257087}
+    - target: {fileID: 1716473233865144256, guid: 2a835edee81e5914d9aab77a9402f843,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3125895004709630299, guid: 2a835edee81e5914d9aab77a9402f843,
         type: 3}
       propertyPath: gemcollect
