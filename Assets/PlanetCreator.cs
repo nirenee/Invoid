@@ -86,8 +86,7 @@ public class PlanetCreator : MonoBehaviour
         GameObject GetRandomCorridor(Transform exitConnector)
         {
 
-            var exitHeight = exitConnector.GetComponent<ChunkConnector>()?.Height
-                             ?? Height.Ground;
+            var exitHeight = exitConnector.GetComponent<ChunkConnector>()?.Height ?? Height.Ground;
             var pool = database.Corridors.Where(e =>
             {
                 var entry = e.prefab.GetComponentInChildren<ChunkConnector>();

@@ -24,11 +24,12 @@ MonoBehaviour:
       type: 3}
     type: 3
     weight: 5
-  - prefab: {fileID: 47828779619878412, guid: 9923afbf131e26d42908130b7c9f32e5, type: 3}
-    type: 2
-    weight: 7
+  - prefab: {fileID: 2116431191687467491, guid: 96a05fa04f2ebab4291f78aa217d9bbf,
+      type: 3}
+    type: 3
+    weight: 3
   Corridors:
   - prefab: {fileID: 7787731428735458732, guid: 731493fa587b1154bb1cd1710cae04b7,
       type: 3}
-    type: 0
-    weight: 1
+    type: 4
+    weight: 10

@@ -11,7 +11,7 @@ enum EnumState
     Patrolling,
     Chasing,
     Attacking
-    }
+  }
 public class StatePatrol : MonoBehaviour
 {
     [Header("References")]
@@ -21,6 +21,8 @@ public class StatePatrol : MonoBehaviour
     public float enemyvisiondistance;
     public float enemyvisionangle;
     public float loseplayer;
+   
+
 
 
     private NavMeshAgent agent;
@@ -59,6 +61,7 @@ public class StatePatrol : MonoBehaviour
 
     private void Start()
     {
+        
         if (patrolPoints != null && patrolPoints.Length > 0)
         {
             currentstate = EnumState.Patrolling;
@@ -82,6 +85,8 @@ public class StatePatrol : MonoBehaviour
 
     private void Update()
     {
+        
+        
         if(playerposition== null)
         {
             Patrol();
@@ -132,6 +137,7 @@ public class StatePatrol : MonoBehaviour
     }
     private void Patrol()
     {
+       
         if (!agent.enabled || !agent.isOnNavMesh)
         {
             return;

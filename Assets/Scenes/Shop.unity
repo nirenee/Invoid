@@ -7743,6 +7743,8 @@ MonoBehaviour:
   bulletposini: {fileID: 740068810}
   bulletprefab: {fileID: 4062482987743613692, guid: a21a346b8e3d2dd40a9e513a1e055b27,
     type: 3}
+  audiosurce: {fileID: 0}
+  shooting: {fileID: 0}
 --- !u!1 &744298994 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4515203732076682928, guid: 025248aa7affe4e249d1ecb153635008,
@@ -26470,7 +26472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: {fileID: 367923534}
-  totaldiamonds: 0
+  gameManager: {fileID: 0}
 --- !u!1 &1416233557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1334295600580035087, guid: bfbe2d0ef9f1b4132a79fecec88405c3,
@@ -27133,7 +27135,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1501914783}
-  - component: {fileID: 1501914786}
   - component: {fileID: 1501914785}
   - component: {fileID: 1501914784}
   m_Layer: 0
@@ -27170,7 +27171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: accf339f85c60104f86845d2de513ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Blockout
+  sceneName: debug
 --- !u!65 &1501914785
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27188,27 +27189,6 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &1501914786
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501914782}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}

@@ -9,6 +9,8 @@ public class Inventory : MonoBehaviour
    
     public TextMeshProUGUI counter;
     public GameManager gameManager;
+    public AudioSource audiosource;
+    public AudioClip gemcollect;
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -36,6 +38,7 @@ public class Inventory : MonoBehaviour
         {
             return;
         }
+        audiosource.PlayOneShot(gemcollect);
         GameManager.Instance.AddGems(amount);
      
         counter.text = GameManager.Instance.gemscount.ToString();
