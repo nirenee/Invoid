@@ -137,6 +137,7 @@ public class InputManager : MonoBehaviour
     public void HandleAttack()
     {
         animatormanager.animator.SetBool("isShooting", attack_button);
+       
         if (!attack_button)
         {
            

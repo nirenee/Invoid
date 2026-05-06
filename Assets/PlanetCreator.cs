@@ -1,4 +1,4 @@
-using System.CodeDom.Compiler;
+﻿using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +22,20 @@ public class PlanetCreator : MonoBehaviour
         var current = SpawnChunk(GetByType(ChunkType.Start), Vector3.zero, Quaternion.identity);
         spawned.Add(current);
 
+        foreach (var entry in database.Chunks)
+        {
+            var north = entry.prefab.GetComponentsInChildren<ChunkConnector>()
+                            .FirstOrDefault(c => c.Direction == Direction.North);
+            var south = entry.prefab.GetComponentsInChildren<ChunkConnector>()
+                            .FirstOrDefault(c => c.Direction == Direction.South);
+
+            Debug.Log($"{entry.prefab.name} → North: {north != null} / South: {south != null}");
+        }
+
         for (int i = 0; i < totalChunks - 2; i++)
         {
             var exitConnector = GetExitConnector(current);
-            if (exitConnector != null)
+            if (exitConnector == null)
             {
                 break;
             }
@@ -70,8 +80,7 @@ public class PlanetCreator : MonoBehaviour
         }
         GameObject GetRandomChunk()
         {
-            var pool = database.Chunks.Where(e =>
-                e.type != ChunkType.Start && e.type != ChunkType.Spaceshipart).ToList();
+            var pool = database.Chunks.Where(e => e.type != ChunkType.Start && e.type != ChunkType.Spaceshipart).ToList();
             return PickWeighted(pool);
         }
         GameObject GetRandomCorridor(Transform exitConnector)

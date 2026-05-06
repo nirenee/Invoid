@@ -10,10 +10,13 @@ public class BulletManager : MonoBehaviour
     public float bulletrange= 100f;
     public Transform bulletposini;
     public GameObject bulletprefab;
+    public AudioSource audiosurce;
+    public AudioClip shooting;
 
     public void HandleBullet()
     {
-        if(bulletprefab == null || bulletposini == null)
+        audiosurce.PlayOneShot(shooting);
+        if (bulletprefab == null || bulletposini == null)
         {
             return;
         }
