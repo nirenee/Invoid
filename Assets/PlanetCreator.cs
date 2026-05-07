@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class PlanetCreator : MonoBehaviour
@@ -14,6 +15,14 @@ public class PlanetCreator : MonoBehaviour
     {
         GeneratePlanet();
     }
+
+    void BakeNavMesh()
+    {
+        var surfaces = FindObjectsOfType<NavMeshSurface>();
+        foreach (var surface in surfaces)
+            surface.BuildNavMesh();
+    }
+
     private void GeneratePlanet()
     {
         foreach (var g in spawned) Destroy(g);
@@ -47,8 +56,22 @@ public class PlanetCreator : MonoBehaviour
             var nextChunk = SpawnConnected(GetRandomChunk(), corridorExit);
             spawned.Add(nextChunk);
             current = nextChunk;
-        }
+            }
+            var lastExit = GetExitConnector(current);
+            if (lastExit != null)
+            {
+                var lastCorridor = SpawnConnected(GetRandomCorridor(lastExit), lastExit);
+                if (lastCorridor != null)
+                {
+                    spawned.Add(lastCorridor);
+                    var bossExit = GetExitConnector(lastCorridor);
+                    var final = SpawnConnected(GetByType(ChunkType.Spaceshipart), bossExit);
+                    if (final != null) spawned.Add(final);
+                }
+            }
 
+            BakeNavMesh();
+        
         GameObject SpawnConnected(GameObject prefab, Transform exitConnector)
         {
             if (prefab == null || exitConnector == null) return null;
@@ -95,5 +118,6 @@ public class PlanetCreator : MonoBehaviour
 
             return pool.Count > 0 ? PickWeighted(pool) : database.Corridors[0].prefab;
         }
-        }
+
+    }
 }
