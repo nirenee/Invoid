@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 2
-  Height: 0
+  Height: 1
 --- !u!1 &797941458689741967
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 1
-  Height: 0
+  Height: 1
 --- !u!1 &1293073045663711176
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 0
-  Height: 0
+  Height: 1
 --- !u!1 &5052857696254261600
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6304914822146327330}
   m_Layer: 0
-  m_Name: T-Corridor
+  m_Name: T-Corridor High
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

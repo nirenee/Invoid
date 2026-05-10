@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8538411878349533480}
   m_Layer: 0
-  m_Name: EnemyMeelee
+  m_Name: EnemyMeelee 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,6 +196,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a9cc092fcd2f11144818dcc2a6b3559b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0946d510d2a9b354687f5ac1a7c0dadb, type: 2}
     - target: {fileID: 919132149155446097, guid: a9cc092fcd2f11144818dcc2a6b3559b,
         type: 3}
       propertyPath: m_Name

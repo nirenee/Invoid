@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public int gemscount = 0;
+    public static string sceneToLoad;
 
     private void Awake()
     {

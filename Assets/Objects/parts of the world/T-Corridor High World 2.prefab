@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 2
-  Height: 0
+  Height: 1
 --- !u!1 &797941458689741967
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 1
-  Height: 0
+  Height: 1
 --- !u!1 &1293073045663711176
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 0
-  Height: 0
+  Height: 1
 --- !u!1 &5052857696254261600
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6304914822146327330}
   m_Layer: 0
-  m_Name: T-Corridor
+  m_Name: T-Corridor High World 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,8 +251,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -2310514774154243031, guid: 024b8d2d7c890eb4ebcc0408ea2cd963,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 0946d510d2a9b354687f5ac1a7c0dadb, type: 2}
     - target: {fileID: 919132149155446097, guid: a9cc092fcd2f11144818dcc2a6b3559b,
         type: 3}
       propertyPath: m_Name
@@ -378,8 +377,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -2310514774154243031, guid: 024b8d2d7c890eb4ebcc0408ea2cd963,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 0946d510d2a9b354687f5ac1a7c0dadb, type: 2}
     - target: {fileID: 919132149155446097, guid: a9cc092fcd2f11144818dcc2a6b3559b,
         type: 3}
       propertyPath: m_Name
