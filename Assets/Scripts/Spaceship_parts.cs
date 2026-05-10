@@ -16,14 +16,28 @@ public class Spaceship_parts : MonoBehaviour
         inventory = FindObjectOfType<Inventory>();
         inputManager = FindObjectOfType<InputManager>();
         gameManager = FindObjectOfType<GameManager>();
+        GameObject spaceshipParent = GameObject.FindWithTag("SpaceshipOpenParent");
     }
+    private void Start()
+    {
+        GameObject spaceshipParent = GameObject.FindWithTag("SpaceshipOpenParent");
+        spaceship = GameObject.FindWithTag("Spaceship");
+        
+    }
+
     private void Update()
     {
+        if (spaceship == null)
+            spaceship = GameObject.FindWithTag("Spaceship");
+
+        if (spaceshipopen == null)
+            spaceshipopen = GameObject.FindWithTag("SpaceshipOpen");
         SpaceObjectActive();
+
     }
     public void SpaceObjectActive()
     {
-        if (GameManager.Instance.gemscount >= 100)
+        if (GameManager.Instance.gemscount >= GameManager.Instance.gemsRequired)
         {
             partofspaceship.SetActive(true);
         }

@@ -7,8 +7,7 @@ public class ChangeScene : MonoBehaviour
 {
    public void ChangeSceneName(string sceneName)
     {
-        GameManager.sceneToLoad = sceneName;
-        SceneManager.LoadScene("Loading Screen");
+        SceneManager.LoadScene(sceneName);
     }
     public void QuitGame()
     {

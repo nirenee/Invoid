@@ -23,15 +23,16 @@ MonoBehaviour:
   - prefab: {fileID: 5917643063480669357, guid: 9dd8237c93c7f074f9765046f816f46f,
       type: 3}
     type: 3
-    weight: 4
+    weight: 7
   - prefab: {fileID: 1554067798488877847, guid: c3e80b129af85914c81599448d20446e,
       type: 3}
     type: 2
-    weight: 2
+    weight: 8
   - prefab: {fileID: 47828779619878412, guid: db35643fe140d104ab999f6ec4309d1f, type: 3}
     type: 2
-    weight: 7
-  - prefab: {fileID: 47828779619878412, guid: db35643fe140d104ab999f6ec4309d1f, type: 3}
+    weight: 10
+  - prefab: {fileID: 2982444496809232237, guid: 7e9228e749e05894cbcdf35933332f35,
+      type: 3}
     type: 2
     weight: 7
   Corridors:
@@ -46,8 +47,8 @@ MonoBehaviour:
   - prefab: {fileID: 5052857696254261600, guid: d9d86ec4b861c8545872ff1a90b79aa3,
       type: 3}
     type: 4
-    weight: 5
+    weight: 3
   - prefab: {fileID: 5052857696254261600, guid: 0e211f859dc25c7428ac1ef05358ab63,
       type: 3}
     type: 4
-    weight: 5
+    weight: 3

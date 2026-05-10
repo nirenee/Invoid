@@ -9,6 +9,9 @@ TagManager:
   - deathwall
   - EnemyAttack
   - PatrolPoints
+  - SpaceshipOpen
+  - Spaceship
+  - SpaceshipOpenParent
   layers:
   - Default
   - TransparentFX

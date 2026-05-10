@@ -21,8 +21,8 @@ public class Spaceship_scenechange : MonoBehaviour
                 SceneManager.LoadScene(sceneName);
                
             }
-           
+    
         }
-    }    
-
+    }
+   
 }
