@@ -14,6 +14,7 @@ The game supports both **Keyboard & Mouse** and **Xbox Controllers**.
 | Dash              | Left Shift              | B / Button East            |
 | Jump              | Spacebar                | A / Button South           |
 | Attack            | Left Click / Mouse 1   | RT (Right Trigger)         |
+| Change Camera View | 1  |  |
 | Interact / Pick up| E                       | X / Button West            |
 |Pause Menu     | ESC                         |       Menu Button
 
@@ -44,6 +45,12 @@ The last room of the game features a **procedural enemy spawning system** based 
 - **Spawn Costs:**
   - **Pulpitos (Octos):** 20 points per spawn.
   - **Picudos (Stars):** 10 points per spawn.
+ 
+## Camera System
+
+The game allows the player to switch between **First-Person** and **Third-Person** camera views at any time during gameplay.
+
+This feature gives the player more freedom when exploring, fighting enemies, or navigating the environment, allowing different gameplay perspectives depending on the situation.
 
 
 ---
