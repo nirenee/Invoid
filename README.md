@@ -3,7 +3,7 @@ Videogame made for the Develop at Ubisoft Program.
 # Project Overview
 For more in-depth details about the game's mechanics, lore, and complete design, please check our official Game Design Document:
 
-[📖 Click here to read the Game Design Document (GDD) & Story Details](https://docs.google.com/document/d/1xHgj9lL50fSc0uN7FdnCe3ZCiEAKjDwNGhs0a7QFH5U/edit?usp=sharing)
+[ Click here to read the Game Design Document (GDD) & Story Details](https://docs.google.com/document/d/1xHgj9lL50fSc0uN7FdnCe3ZCiEAKjDwNGhs0a7QFH5U/edit?usp=sharing)
 # Controls
 
 The game supports both **Keyboard & Mouse** and **Xbox Controllers**.
@@ -37,7 +37,7 @@ Use the crosshair in the center of your screen to aim your camera and shoot at e
 - **Combat:** If you step in front of them and enter their vision range, they will shoot projectiles (bullets) at you.
 - **Loot:** They have a higher Gem drop rate compared to the Octos.
 
-### Procedural Spawning (Final Room)
+### Procedural Spawning (Spaceship Room)
 The last room of the game features a **procedural enemy spawning system** based on a point budget:
 - The level is assigned a total pool of spawn points (100 in the first level).
 - Enemies will continuously spawn until this point budget is fully depleted.
@@ -45,24 +45,69 @@ The last room of the game features a **procedural enemy spawning system** based 
   - **Pulpitos (Octos):** 20 points per spawn.
   - **Picudos (Stars):** 10 points per spawn.
 
+
 ---
 
-# Progression & Gems
+# Shop System and Upgrades
 
-> **[!NOTE]** > **MVP Status:** The ability upgrade system is not yet implemented in this current MVP. It is planned for a future update.
+After completing the first level and collecting more than **100 Gems**, the player can return to the spaceship and access the
+**Shop Area**.
 
-Once fully implemented, you will be able to collect and spend Gems to:
+Inside the ship, the player must interact with the **blue command table** to purchase upgrades and improve their abilities before continuing.
+
+Once at least one upgrade has been purchased, the door to the next level will open.
+
+Possible upgrades include:
 - **Upgrade character stats:** Increase your Max Health, Attack Range, Damage output, and more.
 - **Unlock new content:** Acquire brand-new abilities and weapons for your arsenal.
+
+---
+# Procedural Levels
+
+The second level is fully generated using a **procedural generation system**.
+
+The map is created dynamically by assigning:
+- The number of chunks/platforms
+- The type of chunks that can spawn
+- Their possible connections and positions
+- Enemy spawn distribution
+
+For the current prototype:
+- The level contains **10 procedural chunks/platforms**
+- The player must collect **200 Gems** to complete the level
+- The spaceship spawns at the end of the level.
+
+- Difficulty increases progressively as the player advances
+
+Because the game is built around modular procedural systems, it can easily be expanded with:
+- New chunk variations
+- New enemy types
+- Larger levels
+- Different level themes
+- More complex procedural rules
+
+The project was designed with scalability in mind, allowing the game to grow into much larger and more varied experiences.
+
+---
 # Your Mission
 
 Your ship has crashed, and its vital components are scattered across the planet. 
 
-**Current MVP Objective:**
-1. **Hunt and Collect:** Defeat enemies until you have collected **more than 100 Gems**.
-2. **Retrieve the Part:** Once you reach the gem goal, the **Ship Piece** will spawn at the end of the level.
-3. **Escape:** Pick up the Ship Piece, return to the door of your crashed ship, and press **'E'** to enter and win the game!
+## Current Gameplay Loop
 
+### Level 1
+1. Defeat enemies and collect more than **100 Gems**
+2. Retrieve the Ship Piece
+3. Return to your crashed spaceship
+
+### Shop Area
+1. Upgrades habilities by opurchasing objects
+
+### Level 2
+1. Explore the procedurally generated map
+2. Survive increasingly difficult enemy encounters
+3. Collect more than **200 Gems**
+4. Win the game
 
 # How to compile the project 
 
@@ -96,7 +141,11 @@ Luka Rolak
 ### Music:
 - Cleyton Kauffman - Exploration Theme
 - Zander Noriega - Blinding Lights
+- Trevor Lentz - Lunar Echo
+- Caryil - The Desert of Dreams
 ### 3D Art
 - Maksim Bugrimov - Spaceship
 - Dungeon Mason - RPG Monster Couple PBR Polyart
 - cloudyette - Stylized Astronaut – Game-Ready
+- Modular Sci-Fi Corridor - MagixBox
+- Free Demo Of Low Poly Space Alien Worlds 3D Asset Pack - Draftpunk Studios
